@@ -1,9 +1,14 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('', `freedb_natty7`, `qHQq&f4gy26rRpb`, {
-	dialect: 'mysql',
-	host: 'sql.freedb.tech',
-	database: `freedb_wabegotte_new`,
-	logging: false,
-});
+const sequelize = new Sequelize(
+	'',
+	`${process.env.DB_USERNAME}`,
+	`${process.env.DB_PASSWORD}`,
+	{
+		dialect: 'mysql',
+		host: `${process.env.HOST}`,
+		database: `${process.env.DATABASE}`,
+		logging: false,
+	}
+);
 
 module.exports = sequelize;
