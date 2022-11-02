@@ -28,5 +28,5 @@ app.use(userRoutes);
 app.use((error, req, res, next) => {
 	res.status(500).render('./error.ejs');
 });
-sequelize``.sync().then((result) => console.log());
+sequelize.sync().then((result) => console.log());
 app.listen(process.env.PORT || 8080);
