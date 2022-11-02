@@ -416,7 +416,7 @@ const buttonsClicked = function () {
 		if (langAmharic) {
 			about_1 = `
 					<div class="about_header section_title">about us</div>
-					<p class="about_main_text">ስነ ድርጅቱ</p>
+					<p class="about_main_text">ስለ ድርጅቱ</p>
 					<p class="about_sub_text">
 						ናኔ ፈርኒቸርስ በ
 						<span class="nane_name">  ይድነቃቸው አስፋው(ናኔ) </span>የተቋቋመ የእንጨት ዉጤቶችን
