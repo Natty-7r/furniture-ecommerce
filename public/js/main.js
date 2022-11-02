@@ -276,6 +276,7 @@ const buying = function () {
 				if (result.ok) return result.json();
 			})
 			.then((orderData) => {
+				console.log('sssssssssssssssss');
 				if (orderData.status == 'fail') {
 					const amharicMessage = orderData.data.message.split('*')[0];
 					const englishMessage = orderData.data.message.split('*')[1];

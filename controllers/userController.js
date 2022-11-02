@@ -135,7 +135,6 @@ exports.postOrders = async (req, res, next) => {
 				preveData,
 			});
 
-		// const order = req.body.data;
 		Order.create({ ...req.body, date }).then((order) => {
 			const orderedProduct = order.type;
 			const owner = order.fullName.toString().split(' ')[0];
