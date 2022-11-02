@@ -255,7 +255,7 @@ const buying = function () {
 			description,
 		};
 
-		fetch('/orders', {
+		fetch('https://nanefurniture.herokuapp.com/orders', {
 			method: 'POST',
 			body: JSON.stringify({
 				...data,
@@ -340,7 +340,7 @@ const commenting = function () {
 			e.target.elements.message.value =
 				'';
 
-		fetch('/contactMessage', {
+		fetch('https://nanefurniture.herokuapp.com/contactMessage', {
 			method: 'POST',
 			body: JSON.stringify({
 				...contactMessage,
@@ -620,7 +620,7 @@ const pagination = function () {
 	const pageBtn = document.querySelector('.btn-page');
 
 	const MoreProducts = function (e) {
-		fetch('/allProducts', {
+		fetch('https://nanefurniture.herokuapp.com/allProducts', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -712,7 +712,7 @@ const searching = function () {
 		}
 
 		if (!searched) return;
-		fetch(`/products/${searched}`)
+		fetch(`/https://nanefurniture.herokuapp.com/${searched}`)
 			.then((result) => {
 				if (result.ok) return result.json();
 				if (!result.ok) return Promise.resolve({ status: 'fail' });
