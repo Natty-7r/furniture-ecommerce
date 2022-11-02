@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http_equiv="X_UA_Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WABEGOTTE</title>
+
+		<link rel="preconnect" href="https://fonts.gofogleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	
+		
+		
+
+		<link href="/style/user/main.css" rel="stylesheet" />
+		<link
+			href="/style/user/mobile.css"
+			rel="stylesheet"
+			media="screen and (max-width: 600px)"
+		/>
+		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+		<script src="https://unpkg.com/phosphor-icons"></script>
+		<script defer src="/js/main.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+	</head>
+	<body>
+			<!--  -----------_ heros section starts ----------- -->
+			<div class="navbar">
+				<a class="navbar_left" href="#">
+					<div class="logo_bar">
+						<hr class="span" />
+						<hr class="span" />
+						<hr class="span" />
+					</div>
+					<h2 class="header_name title">nane furnitures</h2>
+				</a>
+				<div class="navbar_right">
+					<ul class="navbar_list">
+						<li><a href="#hero" class="navbar_link">home</a></li>
+						<li><a href="#about" class="navbar_link">about</a></li>
+						<li><a href="#catagories" class="navbar_link">catagories</a></li>
+						<li><a href="#products" class="navbar_link">products</a></li>
+						<li><a href="#contact" class="navbar_link">contact</a></li>
+					</ul>
+					<button class="lang">english</button>
+					<div class="humburger">
+						<hr class="span" />
+						<hr class="span" />
+						<hr class="span" />
+					</div>
+				</div>
+				<ul class="toggle_list toggle_off">
+					<div class="navbar_left">
+						<div class="logo_bar">
+							<hr class="span" />
+							<hr class="span" />
+							<hr class="span" />
+						</div>
+						<h2 class="header_name title">wabegotte</h2>
+					</div>
+					<button class="close_toggle">&times;</button>
+					<li><a href="#hero">home</a></li>
+					<li><a href="#about">about</a></li>
+					<li><a href="#catagories">catagories</a></li>
+					<li><a href="#products">products</a></li>
+					<li><a href="#contact">contact</a></li>
+				</ul>
+			</div>
+
+			<section id="hero" class="hero">
+				<div class="hero_text ">
+					<div>
+						<div class="hero_main">
+						<h1 class="company_name">nane</h1>
+						 furnitures<br />
+						
+					   </div>
+						
+					<h4 class="hero_sub">
+						we dedicate to proived beautiful and modern furnitures and<br />
+					metal work cheaper
+					</h4>
+					
+					<div class="home_btn">
+						<button class="btn hero_btn">Discover more</button>
+					    <button class=" hero_btn order_now">Order Now</button>
+					</div>
+					
+				</div>
+					
+				</div>
+				<div class="hero_image">
+					
+					<img src="/image/static/home.jpg" alt="sofaFOrLandingPage" />
+				</div>
+			</section>
+			<!--  ------------_ heros section ends ------------ -->
+
+			<!--  -------------- heros section ends ------------ -->
+			<section id="about" class="about ">
+				<div class="about_left">
+					<div class="about_header section_title">about us</div>
+						
+					<p class="about_main_text">
+					who we are  
+					</p>
+					<p class="about_sub_text">
+						nane furnitures is  furniture manufacturing private limited company founded by  <span class="nane_name">yidnekachew asfaw(nane) </span> located at kaffa,gimbo.
+					</p>
+					<p class="about_main_text">
+					why you choose us 
+					</p>
+					<p class="about_sub_text">
+						we are group of talented   wooden workers with more than 15 years committing our effort  to provide you  modern, well designed, beautiful and durable furnitures  on time.
+					</p> 
+							<button  class="btn about_btn about_btn_more"
+								>Read more <span class="arrow">&rightarrow;</span></button 
+							>
+						
+				</div>
+				<div class="about_right">
+					
+				    <div class="about_images">
+						<img
+								class="about_image about_image-2"
+								src="/image/static/quality.jpg"
+							/>
+						<img
+								class="about_image about_image-3"
+								src="/image/static/about_bed-1.jpg"
+							/>
+						<img
+								class="about_image about_image-1"
+								
+								src="/image/static/about_sofa.png"
+							
+
+							/>
+					</div>
+				
+				</div>
+			</section>
+			
+			
+			<section class="catagories" id="catagories">
+				<h1 class="section_title">catagories</h1>
+				<div class="catagories_main">
+					<% catagories.forEach(catagory=>{%>
+					<div class="catagory" data-search="<%=catagory.type%>">
+						<div class="catagory_text">
+							<h4 class="catagory_name"><%=catagory.type%></h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									<%=catagory.startingPrice%><span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="data:image/png; base64,<%=catagory.image%>"
+								alt="<%=catagory.type%>"
+							/>
+						</div>
+					</div>
+					<%})%>
+				</div>
+			</section>
+			<section class="products" id="products">
+				<div class="section_header products_header">
+					<h2 class="section_title products_title">products</h2>
+					<div class="header-search">
+						<form class="product_search" action="">
+							<input
+								type="text"
+								name="search"
+								placeholder="&#xF002; Search"
+								style="font-family: Arial, FontAwesome"
+								class="search_input"
+							/>
+						</form>
+					</div>
+					<p class="search_error"> 
+						No product is associated with you search 	
+						
+						!</p>
+				</div>
+				<div class="products_main">
+					<%products.forEach(product=>{%>
+					<div class="product">
+						<div class="product_image">
+							<div class="discount">
+								<%if(product.discount){ %> <%=product.discount%>
+								<%}%><%if(!product.discount){ %> 5% discount <%}%>
+							</div>
+
+							<img
+								src="data:image/png; base64,<%=product.image%>"
+								alt=" table_full"
+							/>
+						</div>
+						<div class="product_text">
+							<ul class="product_text_list">
+								<li class="name"><%=product.productName%></li>
+
+								<li class="productId"><%=product.id%></li>
+								<li class="type"><%=product.type%></li>
+								<li class="amount ">
+									<span class="amount_name">Price</span>
+									 
+									<span class="amount_value"><%=product.priceString%></span>
+									<!-- <span class="days_value">በድርድር</span> -->
+								</li>
+								<li class="days ">
+									<span class="days_name">Delivery Date</span>
+									 
+									<span class="days_value"><%=product.deliveryString%></span>
+									<!-- <span class="days_value">በድርድር</span> -->
+								</li>
+							</ul>
+							<button class="buyBtn">buy now</button>
+						</div>
+					</div>
+					<% })%>
+				</div>
+					<button class="btn btn-page <%if(!pagination.page){%> btn-page_invisible<%}%>" pageData="2" productData ="all" >more  </button>
+			
+			</section>
+			<section class="order" id="order">
+				<h1 class="section_title">Order us</h1>
+				<p class="order_form_error"></p>
+				<div class="order_main">
+					<form class="order_form" action="/orders" method="POST">
+						<div class="containTwo">
+							<input type="hidden" class="input inputId" name="productId" />
+							<input type="hidden" class="input inputType" name="type" />
+
+							<div class="inputContainer">
+								<input
+									type="text"
+									class="input"
+									placeholder="a"
+									name="fullname"
+								/>
+								<label for="" class="label labelFullName">full Name</label>
+							</div>
+							<div class="inputContainer">
+								<input type="text" class="input" placeholder="a" name="phone" />
+								<label for="" class="label labelPhone"> Phone Number</label>
+							</div>
+						</div>
+
+						<div class="containTwo">
+							<div class="inputContainer">
+								<input
+									type="text"
+									class="input"
+									placeholder="a"
+									name="address"
+								/>
+								<label for="" class="label labelAddress">Address</label>
+							</div>
+
+							<div class="inputContainer">
+								<input
+									type="email"
+									class="input"
+									placeholder="a"
+									name="email"
+								/>
+								<label for="" class="label labelEmail"
+									>Email<span class="optional">optional</span></label
+								>
+							</div>
+						</div>
+
+						<div class="inputContainer inputContainerM">
+							<textarea
+								class="inputM"
+								name="description"
+								name="comment"
+							></textarea>
+							<label for="" class="label">Order Comment </label>
+						</div>
+
+						<input type="submit" class="submitBtn" value="Order Now" />
+					</form>
+					<div class="order_form_message">
+						<h1>
+							ውድ ደንበኛችን በ <span class="order_owner"> </span> ስም ያዘዙት የ
+							<span class="order_product"></span> ትዕዛዝ በትክክል ደርሶናል !
+						</h1>
+						<h2 class="message_header">⭐ እኛን ስለመረጡ እናመሰግኛለን ⭐</h2>
+					</div>
+				</div>
+			</section>
+			<section class="contact" id="contact">
+				<h1 class="section_title">Contact</h1>
+				<div class="contact_main">
+					<div class="contact_info">
+						<div class="contact_info_data address">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+									<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">address</p>
+							<p class="contact_info_vaue">
+								south west ,kaffa<br />
+								gimbo ,mehal Ketema
+							</p>
+						</div>
+
+						<div class="contact_info_data phone">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">Phone</p>
+							<p class="contact_info_vaue">
+								+251 98989899<br />
+								+251 98989899
+							</p>
+						</div>
+
+						<div class="contact_info_data email">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+									<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">email</p>
+							<p class="contact_info_vaue">
+								wabegotte@example.com <br />
+								wabegotte@we.com
+							</p>
+						</div>
+
+						<div class="contact_info_data open_hours">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">open hours</p>
+							<p class="contact_info_vaue">
+								monday- saturday <br />
+								8:00am - 5:00 pm
+							</p>
+						</div>
+					</div>
+
+					<form class="contact_form">
+						<div class="contact_form_message">
+							<h1>ውድ ደንበኛችን የሰጡንን አስተያየት ተቀብልናል !</h1>
+						</div>
+						<p class="contact_form_error"></p>
+						<div class="inputContainer">
+							<input
+								type="text"
+								class="input"
+								placeholder="full name"
+								name="fullName"
+							/>
+						</div>
+
+						<div class="inputContainer">
+							<input
+								type="email"
+								class="input"
+								placeholder="Email /phone number "
+								name="email"
+							/>
+						</div>
+
+						<div class="inputContainer">
+							<input
+								type="text"
+								class="input"
+								placeholder="subject"
+								name="subject"
+							/>
+						</div>
+
+						<div class="inputContainer s inputContainerM">
+							<input class="inputM" name="message" placeholder="message" />
+						</div>
+
+						<input type="submit" class="submitBtn" value="Send Message " />
+					</form>
+				</div>
+			</section>
+
+			<section class="footer">
+				<h2>ለምቾትዎ በጥንቃቄ የተቀረጹ የእንጨት ዉጤቶች ለማቅረብ እንጨነቃልን !</h2>
+				<br />
+				<ul type="none" class="footer_links">
+					<li>
+						<a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icons" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+							<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+						  </svg></a>
+					</li>
+					<li>
+						<a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icons" width="20" height="20" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+						  </svg>  </a>
+					</li>				</ul>
+				<p class="copyright">Copryright &copy; 2022 Reserved wabegotte plc.</p>
+				<p class="developer_right">
+					developed by
+					<a href="mailto:nati7fekadu@gmail.com" class="me">Natty-7</a>
+				</p>
+			</section>
+		</div>
+	
+	</body>
+</html>

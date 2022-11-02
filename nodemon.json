@@ -1,0 +1,7 @@
+{
+	"env": {
+		"DB_USERNAME": "root",
+		"DB_PASSWORD": "next@7",
+		"DATABASE": "wabegotte"
+	}
+}
