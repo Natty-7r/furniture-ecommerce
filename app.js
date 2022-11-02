@@ -12,7 +12,8 @@ const { mainRoot } = require('./util/helper');
 const userRoutes = require('./routes/userRoutes');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const favicon = requir('serve-favicon');
+const favicon = require('serve-favicon');
+
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
