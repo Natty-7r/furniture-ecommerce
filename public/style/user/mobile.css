@@ -274,6 +274,8 @@ button {
 	margin: auto;
 	font-family: serif;
 	letter-spacing: 0.5rem;
+
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .hero_text .hero_main .company_name {
 	margin-bottom: 0.2rem;
@@ -285,6 +287,8 @@ button {
 	text-shadow: 1rem 0px 2rem #492d252f;
 	font-family: serif;
 	letter-spacing: 0.5rem;
+
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .hero_text .hero_sub {
 	margin: 10% auto 10%;
@@ -295,6 +299,7 @@ button {
 	line-height: 1.3em;
 	letter-spacing: 0.2rem;
 	font-family: serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /*  -------- for amharic text--------------- */
