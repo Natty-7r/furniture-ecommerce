@@ -251,7 +251,7 @@ button {
 
 /*  ---------------- hero ends ---------------- */
 .hero {
-	margin-top: 5vh;
+	margin-top: 7vh;
 	height: 90vh;
 	padding: 0rem;
 }
@@ -261,7 +261,7 @@ button {
 	margin: auto;
 	padding-top: 0% !important;
 	height: 70vh;
-	margin-top: 10rem !important;
+	margin-top: 15rem !important;
 	z-index: 3;
 }
 .hero_text .hero_main {
@@ -327,7 +327,7 @@ button {
 	display: block;
 	width: fit-content;
 	margin: auto;
-	margin-top: 5.8rem;
+	margin-top: 3.8rem;
 	margin-bottom: 3.8rem;
 	font-size: 2.6rem;
 	font-weight: 700;
