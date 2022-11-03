@@ -272,7 +272,7 @@ button {
 	line-height: 1.3em;
 	width: 90%;
 	margin: auto;
-	font-family: serif;
+	/* font-family: serif; */
 	letter-spacing: 0.5rem;
 }
 .hero_text .hero_main .company_name {
@@ -283,7 +283,7 @@ button {
 	letter-spacing: 0.2rem;
 	text-transform: uppercase;
 	text-shadow: 1rem 0px 2rem #492d252f;
-	font-family: serif;
+	/* font-family: serif; */
 	letter-spacing: 0.5rem;
 }
 .hero_text .hero_sub {
@@ -294,7 +294,7 @@ button {
 	font-size: 3.4rem;
 	line-height: 1.3em;
 	letter-spacing: 0.2rem;
-	font-family: serif;
+	/* font-family: serif; */
 }
 
 /*  -------- for amharic text--------------- */
