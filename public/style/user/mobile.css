@@ -289,7 +289,7 @@ button {
 .hero_text .hero_sub {
 	margin: 10% auto 10%;
 	font-weight: 100;
-	width: 90%;
+	width: 100%;
 	text-transform: capitalize;
 	font-size: 3.4rem;
 	line-height: 1.3em;
