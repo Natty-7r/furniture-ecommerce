@@ -272,9 +272,8 @@ button {
 	line-height: 1.3em;
 	width: 90%;
 	margin: auto;
-	/* font-family: serif; */
+	font-family: serif;
 	letter-spacing: 0.5rem;
-	font-family: 'Roboto', sans-serif;
 }
 .hero_text .hero_main .company_name {
 	margin-bottom: 0.2rem;
@@ -284,20 +283,18 @@ button {
 	letter-spacing: 0.2rem;
 	text-transform: uppercase;
 	text-shadow: 1rem 0px 2rem #492d252f;
-	/* font-family: serif; */
+	font-family: serif;
 	letter-spacing: 0.5rem;
-	font-family: 'Roboto', sans-serif;
 }
 .hero_text .hero_sub {
 	margin: 10% auto 10%;
-	font-weight: 400;
+	font-weight: 100;
 	width: 90%;
 	text-transform: capitalize;
 	font-size: 3.4rem;
 	line-height: 1.3em;
 	letter-spacing: 0.2rem;
-	/* font-family: serif; */
-	font-family: 'Roboto', sans-serif;
+	font-family: serif;
 }
 
 /*  -------- for amharic text--------------- */
