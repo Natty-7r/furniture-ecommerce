@@ -1019,6 +1019,7 @@ li span {
 .input:focus {
 	border: thin solid var(--grayColor);
 	opacity: 1;
+	background-color: rgb(232, 240, 254);
 }
 .order_form .inputM:focus {
 	border: thin solid var(--grayColor);
@@ -1248,12 +1249,16 @@ li span {
 
 .contact_form .input:focus {
 	border: solid thin #bd8d4af9;
+
+	background-color: rgb(232, 240, 254);
 }
 .inputContainerM .inputM {
 	border: solid thin #bd8d4a99;
 }
 .inputContainerM .inputM:hover {
 	border: solid thin #bd8d4af9;
+
+	background-color: rgb(232, 240, 254);
 }
 
 .contact_form ::placeholder {
