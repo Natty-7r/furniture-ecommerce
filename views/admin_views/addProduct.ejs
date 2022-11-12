@@ -1,0 +1,41 @@
+<%- include('./includes/head.ejs')%>
+<link href="/style/admin/addProduct.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs')%>
+<a href="/admin/products" class="backBtn"> &LeftArrow; back</a>
+<button class="multiple <%if(multiple){%>
+	multiple_on 
+<%}%>"> multiple add</button>
+			<form class="add_prouduct_form" action="/admin/addProduct" method="POST" enctype="multipart/form-data">
+				<%if(redirect){%>
+					<p class="error_message  add_success "> አዲስ <%=type%> ምርት በትክክል ተጨምሯል </p>
+				<%}%>
+				<p class="error_message"><%=message%> </p>
+				<div class="inputContainer">
+					<label for="">product type </label>
+					<input class="input" type="text" name="type" required/>
+					<input class="multiple_input" type="hidden" name="multiple" value="<%if(redirect){%>
+						multiple 
+					<%}%>"/>
+				</div>
+				<div class="inputContainer">
+					<label for="">product display name </label>
+					<input class="input" type="text" name="productName"  required/>
+				</div>
+				<div class="inputContainer">
+					<label for="">pricing string </label>
+					<input class="input" type="text" name="priceString"  />
+				</div>
+				<div class="inputContainer">
+					<label for="">delivery string </label>
+					<input class="input" type="text" name="deliveryString"  />
+				</div>
+				<div class="inputContainer">
+					<label for="">product image  </label>
+					<input class="input file" type="file" name="image" required />
+				</div>
+				<button type="submit" class="btn btn_submit">add product</button>
+			</form>
+			
+	
+	</body>
+</html>

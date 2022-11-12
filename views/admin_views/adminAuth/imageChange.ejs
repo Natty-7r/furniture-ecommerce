@@ -1,0 +1,50 @@
+<%- include('../includes/head.ejs')%>
+
+<link href="/style/admin/addProduct.css" rel="stylesheet" />
+
+<%- include('../includes/navbar.ejs')%>
+
+<a href="/admin/setting" class="backBtn"> back &LeftArrow;</a>
+
+   <%if(!redirect){%>
+
+	<div class="image_notice" >የሚምርጡት photo  የ Design ችግር ሊፈጥርና የድህረ-ገፁን  ገጽታ   ሙሉ ለሙሉ ሊቀርይ ይችላል። <br /> <br />  ሊፈጠር ስለሚችልው ችግር ሃላፊነት ይወስዳሉ
+    <div class="notice_btns">
+        <button class="notice_btn accept_btn">accept </button>
+        <a href="/admin/setting" class="notice_btn"> decline</a>
+    </div>
+</div>
+<form class="add_prouduct_form add_catagory_form image_form" action="/admin/setting/ImageChange" method="POST" enctype="multipart/form-data">
+	<p class="error_message" ><%=message%> </p>	
+	
+
+	<div class="inputContainer" style="margin-top:7rem ;">
+		<label for=""> selected Image  </label>
+		<input class="input file" type="file" name="image" required />
+	</div>
+	<button type="submit" class="btn btn_submit">Change</button>
+</form>
+
+	<%}%>
+	<%if(redirect){%>
+
+		<div class="image_notice" >የሚምርጡት photo  የ Design ችግር ሊፈጥርና የድህረ-ገፁን  ገጽታ   ሙሉ ለሙሉ ሊቀርይ ይችላል። <br /> <br />  ሊፈጠር ስለሚችልው ችግር ሃላፊነት ይወስዳሉ
+		<div class="notice_btns">
+			<button class="notice_btn accept_btn">accept </button>
+			<a href="/admin/setting" class="notice_btn"> decline</a>
+		</div>
+	</div>
+	<form class="add_prouduct_form add_catagory_form " action="/admin/setting/ImageChange" method="POST" enctype="multipart/form-data">
+		<p class="error_message" ><%=message%> </p>	
+		
+	
+		<div class="inputContainer" style="margin-top:7rem ;">
+			<label for=""> selected Image  </label>
+			<input class="input file" type="file" name="image" required />
+		</div>
+		<button type="submit" class="btn btn_submit">Change</button>
+	</form>
+	
+		<%}%>
+	</body>
+</html>

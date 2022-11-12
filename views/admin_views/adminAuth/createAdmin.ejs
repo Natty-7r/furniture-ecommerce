@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs')%>
+<link href="/style/admin/addProduct.css" rel="stylesheet" />
+<%- include('../includes/navbar.ejs')%>
+
+			<form class="add_prouduct_form" action="/admin/createAdmin" method="POST">
+				<p class="error_message"><%=message%> </p>
+				<div class="inputContainer">
+					<label for="">Full name </label>
+					<input class="input" type="text" name="fullName" required value="<%=name%> "required />
+				</div>
+				<div class="inputContainer">
+					<label for="">username </label>
+					<input class="input" type="text" name="username"  required value="<%=username%> "required />
+				</div>
+				<div class="inputContainer">
+					<label for="">password </label>
+					<input class="input" type="text" name="password"  required />
+				</div>
+				<div class="inputContainer">
+					<label for="">confirm password </label>
+					<input class="input" type="text" name="confirmPassword"  required />
+				</div>
+				
+				<button type="submit" class="btn btn_submit">create Admin</button>
+			</form>
+	
+	</body>
+</html>

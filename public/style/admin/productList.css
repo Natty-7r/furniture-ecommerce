@@ -1,0 +1,126 @@
+/* order lists  */
+*,
+*::after,
+*::before {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+:root {
+	font-size: 10px;
+	--mainColorDark: #bd8e4a;
+	--mainColor: #f59f00;
+
+	--grayLight: #724935;
+	--grayColorText: #492d25;
+	--grayColor: #495057;
+	--grayColorLight: #868e96;
+	--grayWhiteLight: #fafaf9fc;
+	--white: #fff;
+	--grayWhite: #e8e3dd;
+}
+
+.order_lists {
+	display: flex;
+	flex-flow: column;
+	height: 88vh;
+}
+
+.order_list_header {
+	height: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: var(--mainColor);
+	color: var(--white);
+}
+.order_list_header .header_name {
+	padding-left: 1rem;
+	flex-basis: 23%;
+	text-align: center;
+}
+.order_list_header .order_owner {
+	flex-basis: 13%;
+}
+.order_list_values {
+	display: flex;
+	flex-flow: column;
+	overflow-y: scroll;
+	gap: 0.1rem;
+}
+.order_list_values .products {
+	display: flex;
+	justify-content: space-around;
+	overflow: j;
+}
+.order_list_values .order_list_value {
+	border-bottom: solid thin var(--grayColorText);
+	flex-basis: 13%;
+	height: 5rem;
+	padding: 1rem 0rem 1rem 0.5rem;
+	border-right: dashed thin var(--grayColor);
+}
+.order_list_values .order_name {
+	flex-basis: 23%;
+	padding: 1rem 0rem 1rem 0.5rem;
+	border-right: dashed thin var(--grayColor);
+}
+.order_list_values .order_image {
+	flex-basis: 23%;
+	position: relative;
+	padding: 1rem 0rem 1rem 0.5rem;
+	border-right: dashed thin var(--grayColor);
+}
+.order_image img {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+}
+.order_list_values .btns {
+	flex-basis: 12%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	border-right: dashed thin var(--grayColor);
+}
+.product_btn {
+	border: solid thin var(--mainColor);
+	border-radius: 0.4rem;
+	padding: 0.4rem 1.2rem;
+	text-transform: capitalize;
+	letter-spacing: 0.1rem;
+}
+
+.clear_btn {
+	background-color: var(--mainColor);
+	color: var(--white);
+	width: fit-content;
+	padding: 0.5rem 2rem;
+	display: block;
+	margin-bottom: 1rem;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	letter-spacing: 0.09rem;
+	border-radius: 0.2rem;
+	margin-right: 2rem;
+	margin-left: auto;
+}
+.add_btn {
+	padding: 1rem 2rem;
+}
+
+.centered_btn {
+	text-align: center;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2rem;
+	width: 60%;
+	padding: 1.5rem 2rem;
+}

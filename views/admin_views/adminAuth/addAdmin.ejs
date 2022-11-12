@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs')%>
+<link href="/style/admin/addProduct.css" rel="stylesheet" />
+<%- include('../includes/navbar.ejs')%>
+   <a href="/admin/setting" class="backBtn"> back &LeftArrow; </a>
+			<form class="add_prouduct_form" action="/admin/setting/addAdmin" method="POST">
+				<%if(redirect){%>
+					<p class="error_message  add_success "><%=adminName%>  እንደ ADMIN በትክክል ተጨምሯል </p>
+				<%}%>
+				<p class="error_message"><%=message%> </p>
+				<div class="inputContainer">
+					<label for="">Full name </label>
+					<input class="input" type="text" name="fullName" required value="<%=name%> "/>
+				</div>
+				<div class="inputContainer">
+					<label for="">username </label>
+					<input class="input" type="text" name="username"  required value="<%=username%> "/>
+				</div>
+				<div class="inputContainer">
+					<label for="">password </label>
+					<input class="input" type="text" name="password" required />
+				</div>
+				<div class="inputContainer">
+					<label for="">confirm password </label>
+					<input class="input" type="text" name="confirmPassword" required  />
+				</div>
+				
+				<button type="submit" class="btn btn_submit">add Admin</button>
+			</form>
+	
+	</body>
+</html>

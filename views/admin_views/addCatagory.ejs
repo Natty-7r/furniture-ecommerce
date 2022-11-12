@@ -1,0 +1,34 @@
+<%- include('./includes/head.ejs')%>
+
+
+	<link href="/style/admin/addProduct.css" rel="stylesheet" />
+	
+
+</head>
+<%- include('./includes/navbar.ejs')%>
+
+
+			<form class="add_prouduct_form add_catagory_form" action="/admin/addCatagory" method="POST" enctype="multipart/form-data">
+				<%if(redirect){%>
+					<p class="error_message add_success "> <%=type%> እንደ ምርት አይነት በትክክል ተጨምሯል  </p>
+				<%}%>
+				<p class="error_message"><%=message%> </p>
+				<div class="inputContainer">
+					<label for="">catagory type </label>
+					<input class="input" type="text" name="type"  />
+				</div>
+
+				<div class="inputContainer">
+					<label for="">catagory starting price </label>
+					<input class="input" type="text" name="startingPrice"  />
+				</div>
+
+				<div class="inputContainer">
+					<label for="">catagory image </label>
+					<input class="input file" type="file" name="image" value="dd" />
+				</div>
+		
+				<button type="submit" class="btn btn_submit">add catagory</button>
+			</form>
+	</body>
+</html>

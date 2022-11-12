@@ -1,0 +1,49 @@
+
+<%- include('./includes/head.ejs')%>
+<link href="/style/admin/productList.css" rel="stylesheet" />
+
+<%- include('./includes/navbar.ejs')%>
+  
+<%if(catagories.length==0){%>
+	<h1 style="text-align: center;"> እስካሁን የተጨመረ  ዕቃ የለም  !</h1>
+	<br />
+	<h1 style="text-align: center; letter-spacing: .9px;">NO CATAGORIES IS ADDED YET  !</h1>
+    <a href="/admin/addCatagory" class="btn clear_btn centered_btn"> add  catagory  </a>
+	<%}%>
+	<%if(catagories.length>0){%>
+		<a href="/admin/addCatagory" class="btn clear_btn add_btn">add  catagory  </a>
+	<div class="order_lists products">
+		<div class="order_list_header">			
+			<p class="order_owner header_name">አይነት </p>
+			<p class="order_type header_name"> መነሻ ዋጋ  </p>
+			<p class="order_address header_name">ፖቶ</p>
+			<p class="order_phone header_name"></p>
+			<p class="order_date header_name">  </p>
+			
+		</div>
+		<div class="order_list_values " >
+				<% catagories.forEach(catagory=>{%>
+					<div class="order_list products" >
+					
+						<p class="order_type order_list_value"><%=catagory.type%></p>
+						<p class="order_name order_list_value"><%=catagory.startingPrice%></p>
+						<p class="order_image order_list_value product_image">
+                            <img src="/image/catagories/<%=catagory.image%>" alt ="<%=catagory.type%>"/ >
+                           
+                        </p>
+                        <p class="order_date order_list_value btns ">                          
+                            <a class="product_btn" href="/admin/catagoryDetail/<%=catagory.id%>">detail </a>
+                        </p>
+                        
+                        <p class="order_date order_list_value btns ">                          
+                            <a class="product_btn" href="/admin/deleteCatagory/<%=catagory.id%>">delete </a>
+                        </p>
+
+                    </div >
+					<%})%>
+				</div>
+			</div>
+			<%}%>
+ 
+	</body>
+</html>

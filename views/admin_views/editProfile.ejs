@@ -1,0 +1,30 @@
+<%- include('./includes/head.ejs')%>
+<link href="/style/admin/addProduct.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs')%>
+   <a href="/admin/setting" class="backBtn"> back &LeftArrow; </a>
+			<form class="add_prouduct_form" action="/admin/setting/updateProfile" method="POST">
+				<p class="error_message"><%=message%> </p>
+
+				<div class="inputContainer">
+					<input type="hidden" name="adminId" value="<%=admin.id%>"/>
+					<label for="">username </label>
+					<input class="input" type="text" name="username"  required value="<%=admin.username%> "/>
+				</div>
+				<div class="inputContainer">
+					<label for=""> old password </label>
+					<input class="input" type="text" name="oldPassword"  />
+				</div>
+				<div class="inputContainer">
+					<label for=""> new password </label>
+					<input class="input" type="text" name="password"  />
+				</div>
+				<div class="inputContainer">
+					<label for="">confirm new  password </label>
+					<input class="input" type="text" name="confirmPassword"  />
+				</div>
+				
+				<button type="submit" class="btn btn_submit">update profile</button>
+			</form>
+	
+	</body>
+</html>

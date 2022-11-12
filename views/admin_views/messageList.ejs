@@ -1,0 +1,39 @@
+
+<%- include('./includes/head.ejs')%>
+<link href="/style/admin/orderList.css" rel="stylesheet" />
+
+<%- include('./includes/navbar.ejs')%>
+  
+<%if(messages.length==0){%>
+	<h1 style="text-align: center;"> እስካሁን ምንም መልዕክት የለም !</h1>
+	<br />
+	<h1 style="text-align: center; letter-spacing: .9px;"> NO MESSAGE YET  !</h1>
+	<%}%>
+	<%if(messages.length>0){%>
+		<a href="/admin/clearMessages" class="btn clear_btn">clear all</a>
+	<div class="order_lists messages">
+		<div class="order_list_header">
+			<p class="order_number header_name">no</p>
+			<p class="order_owner header_name">ሙሉ ስም</p>
+			<p class="order_type header_name">ርዕስ </p>
+			<p class="order_address header_name">መልዕክት</p>
+			<p class="order_phone header_name">email</p>
+			<p class="order_date header_name">  ቀን</p>
+		</div>
+		<div class="order_list_values" >
+				<% messages.forEach(message=>{%>
+					<a class="order_list messages" href="/admin/messages/<%=message.id%>">
+						<p class="order_number order_list_value"><%=message.id%></p>
+						<p class="order_owner order_list_value"><%=message.fullName%></p>
+						<p class="order_type order_list_value"><%=message.subject%></p>
+						<p class="order_message order_list_value"><%=message.message%></p>
+						<p class="order_phone order_list_value"><%=message.email%></p>
+						<p class="order_date order_list_value"><%=message.date%></p>
+					</a>
+					<%})%>
+				</div>
+			</div>
+			<%}%>
+ 
+	</body>
+</html>

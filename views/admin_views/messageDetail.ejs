@@ -1,0 +1,34 @@
+<%- include('./includes/head.ejs') %>
+<link href="/style/admin/orderDetail.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs') %>
+   <a href="/admin/commentlist" class="backBtn"> &LeftArrow; back </a>
+			<div class="order_detail message">
+				<div class="detail_text">
+					<div class="detail_text_value">
+						<p class="text_value_name">full name</p>
+						<p class="text_value_data"><%=message.fullName%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">subject</p>
+						<p class="text_value_data"><%=message.subject%></p>
+					</div>
+					
+					<div class="detail_text_value">
+						<p class="text_value_name">Email/phone number</p>
+						<p class="text_value_data"><%=message.email%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">date</p>
+						<p class="text_value_data"><%=message.date%></p>
+					</div>
+					<div class="detail_text_value detail_comment_value">
+						<p class="text_value_name">comment</p>
+						<p class="text_value_data">
+							<%=message.message%>
+						</p>
+					</div>
+				</div>
+			</div>
+		
+	</body>
+</html>

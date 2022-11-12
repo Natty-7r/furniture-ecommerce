@@ -1,0 +1,126 @@
+/* order lists  */
+*,
+*::after,
+*::before {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+:root {
+	font-size: 10px;
+	--mainColorDark: #bd8e4a;
+	--mainColor: #f59f00;
+
+	--grayLight: #724935;
+	--grayColorText: #492d25;
+	--grayColor: #495057;
+	--grayColorLight: #868e96;
+	--grayWhiteLight: #fafaf9fc;
+	--white: #fff;
+	--grayWhite: #e8e3dd;
+}
+
+.order_lists {
+	display: flex;
+	flex-flow: column;
+	height: 88vh;
+}
+
+.order_list_header {
+	height: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: var(--mainColor);
+	color: var(--white);
+}
+.order_list_header .header_name {
+	text-transform: capitalize;
+	letter-spacing: 0.05rem;
+	text-align: left;
+	border-right: dashed thin var(--white);
+}
+
+.order_list_values {
+	display: flex;
+	flex-flow: column;
+	overflow-y: scroll;
+	gap: 0.1rem;
+	background-color: var(--grayColorLight);
+}
+.order_list_values .order_list {
+	display: flex;
+	color: var(--grayColorText);
+	background-color: var(--white);
+}
+.order_list:last-child {
+	border-bottom: solid thin var(--grayColorText);
+}
+
+.order_list .order_list_value {
+	overflow: hidden;
+	text-transform: capitalize;
+	letter-spacing: 0.05rem;
+	text-align: left;
+	padding: 0.8rem 0.5em;
+	border-right: dashed thin var(--grayColorLight);
+}
+
+.order_number {
+	width: 10%;
+	text-align: left;
+	border-left: dashed thin var(--grayColorLight);
+}
+.order_owner {
+	width: 18%;
+}
+.order_type {
+	width: 14%;
+}
+
+.order_phone {
+	width: 18%;
+}
+.order_address {
+	width: 22%;
+}
+.order_date {
+	width: 18%;
+}
+
+.messages .order_number {
+	width: 5%;
+}
+.messages .order_owner {
+	width: 15%;
+}
+.messages .order_type {
+	width: 14%;
+}
+
+.messages .order_phone {
+	width: 24%;
+}
+.messages .order_message {
+	width: 23%;
+}
+.messages .order_date {
+	width: 19%;
+}
+
+.clear_btn {
+	background-color: var(--mainColor);
+	color: var(--white);
+	width: fit-content;
+	padding: 0.5rem 2rem;
+	display: block;
+	margin-bottom: 1rem;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	letter-spacing: 0.09rem;
+	border-radius: 0.2rem;
+	margin-right: 2rem;
+	margin-left: auto;
+}

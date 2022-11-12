@@ -1,0 +1,45 @@
+<%- include('./includes/head.ejs') %>
+<link href="/style/admin/orderDetail.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs') %>
+   <a href="/admin/orders" class="backBtn"> &LeftArrow; back</a>
+   <a href="/admin/clearOrder/<%=order.id%>" class="btn clear_btn">Delete </a>
+			<div class="order_detail">
+				<div class="detail_image">
+					<img src="/image/products/<%=order.image%>" alt="name" />
+				</div>
+				<div class="detail_text">
+					<div class="detail_text_value">
+						<p class="text_value_name">full name</p>
+						<p class="text_value_data"><%=order.fullName%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">type</p>
+						<p class="text_value_data"><%=order.type%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">product name</p>
+						<p class="text_value_data"><%=order.productName%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">address</p>
+						<p class="text_value_data"><%=order.address%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">phone number</p>
+						<p class="text_value_data"><%=order.phone%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">date</p>
+						<p class="text_value_data"><%=order.date%></p>
+					</div>
+					<div class="detail_text_value detail_comment_value">
+						<p class="text_value_name">comment</p>
+						<p class="text_value_data">
+							<%=order.comment%>
+						</p>
+					</div>
+				</div>
+			</div>
+		
+	</body>
+</html>

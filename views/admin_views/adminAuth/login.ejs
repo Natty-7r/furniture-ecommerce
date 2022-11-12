@@ -1,0 +1,20 @@
+<%- include('../includes/head.ejs')%>
+<link href="/style/admin/addProduct.css" rel="stylesheet" />
+<%- include('../includes/navbar.ejs')%>
+
+			<form class="add_prouduct_form login_form" action="/admin/login" method="POST">
+				<p class="error_message"><%=message%> </p>
+				<div class="inputContainer">
+					<label for="">username </label>
+					<input class="input" type="text" name="username"  required value="<%=username%> "/>
+				</div>
+				<div class="inputContainer">
+					<label for="">password </label>
+					<input class="input" type="text" name="password"  />
+				</div>
+	
+				<button type="submit" class="btn btn_submit">Log In</button>
+			</form>
+	
+	</body>
+</html>

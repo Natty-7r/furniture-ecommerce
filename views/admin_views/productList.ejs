@@ -1,0 +1,49 @@
+
+<%- include('./includes/head.ejs')%>
+<link href="/style/admin/productList.css" rel="stylesheet" />
+
+<%- include('./includes/navbar.ejs')%>
+  
+<%if(products.length==0){%>
+	<h1 style="text-align: center;"> እስካሁን የተጨመረ  ዕቃ የለም  !</h1>
+	<br />
+	<h1 style="text-align: center; letter-spacing: .9px;">NO  PRODUCTS IS ADDED YET  !</h1>
+    <a href="/admin/addProduct" class="btn clear_btn centered_btn"> add products </a>
+	<%}%>
+	<%if(products.length>0){%>
+		<a href="/admin/addProduct" class="btn clear_btn add_btn">add  product </a>
+	<div class="order_lists products">
+		<div class="order_list_header">			
+			<p class="order_owner header_name">አይነት </p>
+			<p class="order_type header_name">የዕቃ  ስም  </p>
+			<p class="order_address header_name">ፖቶ</p>
+			<p class="order_phone header_name"></p>
+			<p class="order_date header_name">  </p>
+			
+		</div>
+		<div class="order_list_values " >
+				<% products.forEach(product=>{%>
+					<div class="order_list products" >
+					
+						<p class="order_type order_list_value"><%=product.type%></p>
+						<p class="order_name order_list_value"><%=product.productName%></p>
+						<p class="order_image order_list_value product_image">
+                            <img src="/image/products/<%=product.image%>" alt ="<%=product.productName%>"/ >
+                           
+                        </p>
+                        <p class="order_date order_list_value btns ">                          
+                            <a class="product_btn" href="/admin/product/detail/<%=product.id%>">detail </a>
+                        </p>
+                        
+                        <p class="order_date order_list_value btns ">                          
+                            <a class="product_btn" href="/admin/deleteProduct/<%=product.id%>">delete </a>
+                        </p>
+
+                    </div >
+					<%})%>
+				</div>
+			</div>
+			<%}%>
+ 
+	</body>
+</html>

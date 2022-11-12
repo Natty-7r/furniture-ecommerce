@@ -1,0 +1,2499 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http_equiv="X_UA_Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NANE FURNITURES</title>
+
+		<link rel="preconnect" href="https://fonts.gofogleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	
+		
+		
+
+		<link href="/style/user/main.css" rel="stylesheet" />
+		<link
+			href="/style/user/mobile.css"
+			rel="stylesheet"
+			media="screen and (max-width: 600px)"
+		/>
+		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+		<script src="https://unpkg.com/phosphor-icons"></script>
+		<script defer src="/js/main.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+		<style>
+			/* ----------------mobile  */
+
+*,
+*::after,
+*::before {
+	padding: 0px;
+	margin: 0px;
+}
+
+:root {
+	--mainColorDark: #bd8e4a;
+	--mainColor: #f59f00;
+	--mainColorLight: #fab005;
+	--mainColorTwo: #4154f1;
+	--lightWhite: rgba(248, 247, 247, 0.832);
+
+	--grayLight: #724935;
+	--grayColorText: #492d25;
+	--grayColor: #495057;
+	--grayColorLight: #868e96;
+	--grayWhiteLight: #fafaf9fc;
+	--white: #fff;
+	--grayWhite: #e8e3dd;
+	font-size: 8px !important;
+}
+@media (min-width: 1500px) {
+	:root {
+		font-size: 8px;
+	}
+}
+@media (max-width: 1500px) {
+	:root {
+		font-size: 8px;
+	}
+}
+@media (max-width: 1000px) {
+	:root {
+		font-size: 7.5px;
+	}
+}
+@media (max-width: 800px) {
+	:root {
+		font-size: 7.2px;
+	}
+}
+@media (max-width: 700px) {
+	:root {
+		font-size: 6.5px;
+	}
+}
+@media (max-width: 800px) {
+	:root {
+		font-size: 6px;
+	}
+}
+
+body,
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+.wholeContainer {
+	position: relative;
+	height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+/*  ---------- DYNAMIC CLASSES----------- */
+.toggle_off {
+	animation: toggleOff 0.3s forwards;
+}
+.toggle_on {
+	animation: toggleOn 0.3s forwards;
+}
+/*  ---------- DYNAMIC CLASSES ENDS----------- */
+/*  ---------- GLOBAL DECLARATIONS----------- */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+button {
+	border: none;
+}
+.btn {
+	display: block;
+	width: fit-content;
+	margin-left: 2.2rem;
+	padding: 1.8rem 4.4rem;
+	font-size: 2.4rem;
+	font-weight: 700;
+	border-radius: 0.3rem;
+	text-transform: capitalize;
+	letter-spacing: 0.1rem;
+	background-color: var(--mainColor);
+	color: var(--white);
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.13);
+	font-family: 'Inter', sans-serif !important;
+	text-shadow: 0rem 01rem 23rem white;
+}
+.section_title {
+	font-size: 3rem;
+	letter-spacing: 0.05rem;
+	font-weight: 800;
+	margin: 2rem;
+	margin-left: rem;
+	text-transform: uppercase;
+	color: var(--mainColor);
+	margin-bottom: 40px;
+}
+/* centering searched section like order form and products  */
+.centered_section {
+	margin-top: 12rem !important;
+}
+
+/*  ---------------- navbar starts ---------------- */
+.navbar {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 12vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 1rem 2rem;
+	background-color: var(--white);
+	z-index: 4;
+	font-family: 'Roboto', sans-serif !important;
+}
+.navbar_shadow {
+	box-shadow: 0px 1rem 10rem rgba(0, 0, 0, 0.05125);
+}
+.navbar_left {
+	flex-basis: 20%;
+	display: flex;
+	gap: 0.6em;
+	align-items: center;
+}
+.navbar_left .logo_bar {
+	display: flex;
+	flex-flow: column;
+	gap: 0.8rem;
+}
+.navbar_left .logo_bar .span {
+	background-color: var(--mainColor);
+	width: 2.2rem;
+	height: 0.5rem;
+	border-radius: 0.3rem;
+	border: none;
+}
+.navbar_left .logo_bar .span:first-child {
+	width: 3rem;
+}
+.navbar_left .logo_bar .span:last-child {
+	width: 1.4rem;
+}
+.navbar_left .header_name {
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: var(--grayColor);
+	font-size: 2.2rem;
+	font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar_right {
+	flex-basis: 55%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1.6rem;
+}
+.navbar_list {
+	list-style: none;
+	flex-basis: 15%;
+	display: flex;
+	justify-content: space-around;
+}
+/* .navbar_list li {
+} */
+.navbar_list li a {
+	display: inline-block;
+	width: 100%;
+	padding: 1.2rem 1.6rem;
+	font-size: 2rem;
+	text-transform: capitalize;
+	font-weight: 600;
+	color: var(--grayColor);
+}
+
+.navbar_link_active {
+	color: var(--mainColorDark) !important;
+}
+.navbar_right .lang {
+	width: 12rem;
+	background-color: var(--mainColor);
+	color: #212529;
+	color: var(--white);
+	font-size: 1.8rem;
+	/* font-size: 14px; */
+	text-transform: capitalize;
+	/* width: fit-content; */
+	padding: 1.2rem 2.8rem;
+	letter-spacing: 0.8px;
+	/* border-radius: 0.5rem; */
+	transition: all 0.7s;
+}
+.lang:hover {
+	border-radius: 30px;
+}
+
+.navbar_right .humburger {
+	display: flex;
+	flex-flow: column;
+	gap: 0.3rem;
+	display: none;
+}
+.navbar_right .humburger .span {
+	background-color: var(--grayColor);
+	width: 2rem;
+	height: 0.38rem;
+	border-radius: 0.3rem;
+}
+/*  ---------------- navbar ends ---------------- */
+
+/*  ---------------- taggle-list start ---------------- */
+
+.toggle_list {
+	display: none;
+}
+
+/*  ---------------- hero ends ---------------- */
+.hero {
+	margin-top: 12vh;
+	padding: 6rem 8rem;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	display: flex;
+}
+.hero_text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--grayColorText);
+	padding: 2rem;
+	/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; */
+	flex-basis: 60%;
+	margin-left: 30px;
+}
+.hero_main {
+	font-size: 5.4rem;
+	font-weight: 100;
+	text-transform: capitalize;
+	line-height: 1.1em;
+	letter-spacing: 0.5rem;
+	margin-left: 15px;
+	width: 80%;
+}
+.hero_main .company_name {
+	font-size: 6.4rem;
+	font-weight: 100;
+	line-height: 1.1em;
+	text-shadow: 1rem 0px 2rem #492d252f;
+	text-transform: uppercase;
+	/* font-family: 'Playfair Display', serif;
+	*/
+	font-family: serif;
+}
+.hero_sub {
+	margin-top: 3rem;
+	margin-left: 15px;
+	font-size: 3.2rem;
+	line-height: 1.3em;
+	font-weight: 100;
+	width: 90%;
+	text-transform: capitalize;
+	letter-spacing: 0.05rem;
+	color: var(--grayColor);
+}
+.amhraric {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--grayColorText);
+	padding: 2rem;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+	flex-basis: 60%;
+	margin-left: 30px;
+}
+.amahric .hero_main {
+	font-size: 5.4rem;
+	font-weight: 700;
+	text-transform: capitalize;
+	line-height: 1.1em;
+	letter-spacing: 0.5rem;
+	margin-left: 15px;
+	width: 80%;
+}
+.amharic .hero_main .company_name {
+	font-size: 6.4rem;
+	font-weight: 700;
+	line-height: 1.1em;
+	text-shadow: 1rem 0px 2rem #492d252f;
+	text-transform: uppercase;
+}
+.amhraci .hero_sub {
+	margin-top: 3rem;
+	margin-left: 15px;
+	font-size: 3.2rem;
+	line-height: 1.3em;
+	font-weight: 500;
+	width: 70%;
+	text-transform: capitalize;
+	letter-spacing: 0.05rem;
+	color: var(--grayColor);
+}
+
+/*  -------- for amharic text--------------- */
+.home_btn {
+	display: flex;
+}
+.hero_btn {
+	margin-top: 5%;
+	transition: border-radius 0.7s;
+}
+.hero_btn:hover {
+	border-radius: 50px;
+}
+/*  -------- for amharic text--------------- */
+.hero_image {
+	flex-basis: 60%;
+	position: relative;
+}
+.hero_image img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.order_now {
+	display: block;
+	width: fit-content;
+	margin-left: 4rem;
+	padding: 1.8rem 4.4rem;
+	font-size: 2.4rem;
+	font-weight: 700;
+	border-radius: 0.3rem;
+	text-transform: capitalize;
+	letter-spacing: 0.2rem;
+	background-color: var(--white);
+	color: var(--mainColor);
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.13);
+	font-family: 'Inter', sans-serif !important;
+	text-shadow: 0rem 01rem 23rem white;
+	border: 3px var(--mainColor) solid;
+}
+
+/* ----------------  about section starts ------------------- */
+.about {
+	width: 95%;
+	margin: 1rem auto auto;
+	padding: 1rem;
+	background-color: var(--grayWhite);
+	background-color: rgba(248, 247, 247, 0.832);
+	border-bottom: solid thin rgba(255, 255, 255, 0.592);
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+.fade_about {
+	position: relative;
+}
+.fade_about::after {
+	content: '';
+	position: absolute;
+	bottom: 0%;
+	left: 0rem;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(248, 247, 247, 0.832);
+	z-index: 8;
+	transform-origin: bottom;
+	animation: fadeAbout 1.5s linear forwards;
+}
+@keyframes fadeAbout {
+	0% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	100% {
+		transform: scaleY(0);
+		opacity: 0;
+	}
+}
+
+.about_left {
+	flex-basis: 40%;
+	padding: 5% 5%;
+}
+
+.about_main_text {
+	margin-top: 3rem;
+	width: 100%;
+	padding-left: 2rem;
+	font-size: 3.2rem;
+	font-weight: 600;
+	line-height: 1.2em;
+	color: var(--grayColor);
+	text-transform: capitalize;
+	text-align: left;
+	letter-spacing: 0.2rem;
+}
+.about_sub_text {
+	width: 90%;
+	padding-left: 3rem;
+	margin-top: 1rem;
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: 1.3em;
+	letter-spacing: 0.1rem;
+	color: var(--grayColor);
+	text-align: left;
+	text-transform: capitalize;
+}
+.nane_name {
+	color: var(--mainColor);
+}
+.about_btn {
+	margin: 3rem;
+	margin-top: 4rem;
+	transition: all 0.7s;
+}
+.about_btn:hover {
+	border-radius: 30px;
+}
+.arrow {
+	font-weight: 900;
+	padding: 0rem;
+}
+.about_right {
+	flex-basis: 50%;
+	z-index: 3;
+	height: 50rem;
+	margin: 5% auto;
+	position: relative;
+	background-color: transparent;
+}
+
+@keyframes overlayRight {
+	0% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scaleY(0);
+	}
+}
+@keyframes overlayLeft {
+	0% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scaleY(0);
+	}
+}
+
+.about_images {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.about_images .about_image {
+	position: absolute;
+	width: 50%;
+	height: 60%;
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.236);
+	border-radius: 0.5rem;
+	transition: transform 0.3s;
+}
+.about_images .about_image-1 {
+	left: 0rem;
+	top: 0rem;
+	z-index: 0;
+}
+.about_images .about_image-2 {
+	right: 10%;
+	top: 20%;
+	z-index: 1;
+}
+.about_images .about_image-3 {
+	left: 10%;
+	bottom: -3rem;
+	z-index: 2;
+}
+.about_image:hover {
+	z-index: 4;
+	transform: scale(1.2);
+}
+
+/* ----------------  about section ends ------------------- */
+
+/* ----------------  products section starts ------------------- */
+/* ----------------  catagoris section starts ------------------- */
+.catagories {
+	padding-bottom: 2rem;
+}
+.catagories .section_title {
+	margin: 2rem;
+	display: block;
+	margin: 4rem;
+}
+.catagories_main {
+	padding: 1% 5%;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 1rem;
+	background-color: var(--white);
+	justify-content: space-around;
+}
+.catagory {
+	flex-basis: 42%;
+	height: 20rem;
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	background-color: #f2f2f2;
+	transition: all 0.3s;
+}
+.catagory_text {
+	flex-basis: 60%;
+	padding: 3rem;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	color: var(--grayColor);
+}
+.catagory_text .catagory_name {
+	font-size: 2.4em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	color: var(--grayColorText);
+}
+/* .catagory_text .catagory_pricing {
+} */
+.catagory_pricing .catagory_price {
+	font-size: 2.4rem;
+	color: var(--grayColor);
+	opacity: 0.9;
+	letter-spacing: 0.08rem;
+}
+.catagory_price .price_name {
+	font-size: 2rem;
+}
+.catagory_pricing .catagory_pricing_text {
+	padding-left: 0.2rem;
+	letter-spacing: 0.1rem;
+	font-size: 1.8rem;
+	color: var(--grayColor);
+	opacity: 0.9;
+}
+
+.catagory_image {
+	flex-basis: 50%;
+	position: relative;
+}
+.catagory_image img {
+	position: absolute;
+	top: 5%;
+	right: 0px;
+	width: 100%;
+	height: 90%;
+	opacity: 1;
+	z-index: 1;
+}
+.catagory_image_overlay {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #f2f2f2;
+	background-color: transparent;
+	opacity: 0.2;
+	z-index: 2;
+}
+.catagory:hover {
+	transform: translateY(-0.1rem);
+	background-color: rgb(242, 242, 245);
+	background-color: #fff;
+	box-shadow: 0rem 0.5rem 2rem rgba(0, 0, 0, 0.1);
+}
+.catagory:hover .catagory_image_overlay {
+	background-color: #f2f2f2;
+	background-color: transparent;
+}
+
+/* ----------------  products section starts ------------------- */
+
+/* ----------------------- */
+.products {
+	margin: 2rem auto;
+	padding: 3rem;
+	position: relative;
+	background-color: var(--white);
+}
+
+.btn-page {
+	margin: auto;
+	margin-top: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: fit-content;
+	font-size: 1.8rem;
+	background-color: var(--mainColorDark);
+	padding: 1.5rem 3rem;
+	opacity: 1;
+}
+.btn-page:hover {
+	opacity: 0.8;
+}
+.btn-page_invisible {
+	display: none;
+}
+
+.products_header {
+	background-color: var(--white);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0rem 1.2rem;
+	margin-bottom: 2rem;
+}
+.search_error {
+	position: absolute;
+	top: 8rem;
+	left: 6rem;
+	font-size: 2.4rem;
+	letter-spacing: 0.009rem;
+	opacity: 0;
+	border-radius: 0.4rem;
+	border: solid thin var(--mainColor);
+	color: var(--mainColor);
+	padding: 01rem 2rem;
+	z-index: 3;
+}
+.visibleError {
+	opacity: 1;
+}
+
+.product_search {
+	width: 35rem;
+	display: flex;
+	height: 3.6rem;
+	border-radius: 0.5rem;
+	position: relative;
+}
+.search_input {
+	display: block;
+	width: 50%;
+	margin-right: 2.8rem;
+	margin-left: auto;
+	padding-left: 1rem;
+	font-size: 2rem;
+	border-radius: 1.12rem;
+	padding: 0.3rem 01rem;
+	border: thin solid var(--mainColor);
+	color: var(--grayLight);
+	transition: all 0.3s;
+}
+.icon-search {
+	width: 100px;
+	height: 100px;
+}
+
+.search_input:focus {
+	outline: solid thin var(--mainColor);
+	width: 100%;
+}
+.search_input::placeholder {
+	color: var(--grayColorLight);
+	width: 100%;
+	word-spacing: 0.7rem;
+}
+.search_result {
+	position: absolute;
+	top: 4rem;
+	left: 50%;
+	background-color: var(--grayLight);
+	clip-path: polygon(0 20%, 20% 0, 40% 20%, 100% 20%, 100% 100%, 0 100%);
+	padding: 1rem;
+	color: white;
+	display: none;
+}
+.products_main {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	padding: 0rem 2rem;
+	justify-content: space-around;
+	flex-flow: row wrap;
+	gap: 2rem;
+}
+.productId {
+	display: none;
+}
+.products_main .product {
+	margin-top: 2rem;
+	flex-basis: 28%;
+	height: 70rem;
+	background-color: var(--white);
+	box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.119);
+	display: flex;
+	flex-flow: column;
+	z-index: 2;
+	transition: all 0.3s;
+	z-index: 3;
+}
+.product:hover {
+	box-shadow: 0px 1rem 2rem #868e961b;
+	z-index: 3;
+	transform: translateY(-1rem);
+}
+
+.product_image {
+	position: relative;
+	height: 60%;
+	width: 100%;
+	z-index: 2;
+	background-color: rgba(255, 255, 255, 0.574);
+	border-bottom: solid thin var(--grayWhite);
+}
+.discount {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	width: fit-content;
+	font-weight: 100;
+	font-size: 1.6rem;
+	padding: 0.8rem 1.6rem;
+	letter-spacing: 0.05rem;
+	border-radius: 1rem;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.087);
+	z-index: 3;
+	background-color: var(--mainColorLight);
+	color: var(--white);
+}
+.product_image img {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	transition: all 0.3s;
+	border-radius: 10px;
+}
+
+.product .product_text {
+	height: 40%;
+}
+.product_text_list {
+	list-style: none;
+	color: var(--grayColor);
+	height: 60%;
+	padding: 1rem;
+}
+.product_text_list li {
+	font-size: 1.6rem;
+	padding-left: 0.1rem;
+	letter-spacing: 0.1rem;
+}
+li span {
+	text-align: center;
+}
+.product_text_list .name {
+	width: 85%;
+	font-size: 2.4rem;
+	letter-spacing: 0.3rem;
+	padding-left: 0.1rem;
+	text-transform: uppercase;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.product_text_list .type {
+	padding-left: 0.3rem;
+	font-weight: 100;
+	font-size: 2rem;
+	text-transform: lowercase;
+	letter-spacing: 0.2rem;
+	color: var(--grayColorLight);
+}
+.product_text_list .amount {
+	font-size: 3.2rem;
+	margin-top: 2.4rem !important;
+	letter-spacing: 0.1rem;
+	color: var(--mainColor);
+	text-transform: capitalize;
+	line-height: 1em;
+	display: flex;
+	justify-content: space-between;
+
+	padding-left: 5%;
+	width: 90%;
+}
+.product_text_list .amount .amount_value {
+	padding-left: 1rem;
+	color: var(--mainColor);
+	opacity: 0.7;
+	padding-left: 10%;
+	line-height: 1em;
+	text-transform: capitalize;
+	text-align: left;
+}
+
+.product_text_list .days {
+	font-size: 2.4rem;
+	margin-top: 1.4rem !important;
+	letter-spacing: 0.1rem;
+	color: var(--mainColor);
+	text-transform: capitalize;
+	line-height: 1em;
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	padding-left: 5%;
+	letter-spacing: 0.1rem;
+}
+.product_text_list .days .days_value {
+	padding-left: 1rem;
+	color: var(--mainColor);
+	opacity: 0.7;
+	padding-left: 10%;
+	line-height: 1em;
+	text-transform: capitalize;
+	text-align: left;
+	letter-spacing: 0.1rem;
+}
+.buyBtn {
+	display: block;
+	width: 200px;
+	margin: auto;
+	margin-top: 0rem;
+	padding: 1rem 2rem;
+	text-transform: capitalize;
+	font-size: 2.5rem;
+	background-color: var(--mainColor);
+	color: var(--white);
+	transition: all 0.7s;
+}
+.buyBtn:hover {
+	border-radius: 50px;
+}
+
+/* ----------------  Order section starts ------------------- */
+.order {
+	padding: 1rem;
+	width: 100%;
+	background-color: rgba(248, 247, 247, 0.99);
+	height: 0rem;
+	transition: all 0.3s;
+	position: relative;
+	opacity: 1;
+	transform: scale(0);
+}
+.order_visible {
+	animation: displayOrder 0.3s forwards;
+}
+@keyframes displayOrder {
+	0% {
+		opacity: 0;
+		transform: scaleY(0);
+		height: 0rem;
+	}
+
+	100% {
+		opacity: 1;
+		transform: scaleY(1);
+		height: auto;
+	}
+}
+.order .section_title {
+	margin: 4rem;
+}
+.order_main {
+	display: flex;
+	justify-content: space-around;
+}
+
+.order_left {
+	flex-basis: 0%;
+	clip-path: polygon(0 0, 70% 0, 100% 100%, 0 100%);
+	background-image: url('../image/worker_illus.jpg');
+	background-size: cover;
+}
+
+.order .order_form {
+	border-color: var(--grayWhite) !important;
+	flex-basis: 70%;
+	margin: 2rem auto;
+	border-radius: 0.8rem;
+	padding: 2rem 4rem;
+	display: flex;
+	flex-flow: column;
+	gap: 3rem;
+	display: none;
+}
+.order_form_visible {
+	display: flex !important;
+}
+.order_form_message {
+	border-color: var(--white);
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.176);
+	flex-basis: 60%;
+	height: fit-content;
+	margin: 2rem auto;
+	margin-top: 0rem;
+	border-radius: 0.8rem;
+	padding: 5%;
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+	gap: 2rem;
+	letter-spacing: 0.09rem;
+	font-size: 2.4rem;
+	display: none;
+}
+.order_form_message_visible {
+	display: block;
+}
+
+.order_form_error {
+	font-size: 1.8rem;
+	position: absolute;
+	top: 3rem;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40%;
+	padding: 01rem 1rem;
+	border-radius: 0.4rem;
+	text-align: center;
+	font-size: 2.4rem;
+	border: solid thin var(--mainColorDark);
+	color: var(--mainColor);
+	display: none;
+}
+.order_form_error_visible {
+	display: block;
+}
+
+.order_form .containTwo {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.inputContainer {
+	height: 7rem;
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-flow: column-reverse;
+	justify-content: space-around;
+	position: relative;
+}
+.inputContainerM {
+	height: 14rem;
+	width: 70%;
+	margin: auto;
+	position: relative;
+}
+
+.input {
+	flex-basis: 100%;
+	width: 80%;
+	border-radius: 0.4rem;
+	font-size: 2.2rem;
+	border: 0.1rem solid #dadce0;
+	font-weight: 500;
+	letter-spacing: 0.08rem;
+	padding: 0px 2rem;
+	outline: none;
+	background: none;
+	z-index: 1;
+	transition: all 0.3s;
+}
+
+.inputM {
+	height: 100%;
+	width: 90%;
+	border: 0.1rem solid #dadce0;
+	border-radius: 0.4rem;
+	padding: 1rem 2rem;
+	outline: none;
+	background: none;
+	transition: all 0.3s;
+	font-size: 2.2rem;
+}
+
+::placeholder {
+	color: transparent;
+}
+
+.label {
+	position: absolute;
+	top: -2.2rem;
+	padding: 0 0.4rem;
+	color: var(--grayColor);
+	font-size: 1.8rem;
+	font-weight: 600;
+	letter-spacing: 0.1rem;
+	z-index: 0;
+	text-transform: capitalize;
+	transition: all 0.3s;
+}
+.optional {
+	padding-left: 0.3rem;
+	font-size: 1em;
+	font-weight: 100;
+	letter-spacing: 0.05rem;
+	color: var(--grayColor);
+	opacity: 0.6;
+}
+.submitBtn {
+	width: fit-content;
+	padding: 1.6rem 3.2rem;
+	display: block;
+	margin: auto;
+	border: none;
+	background-color: var(--mainColor);
+	border-radius: 0.6rem;
+	color: white;
+	cursor: pointer;
+	font-size: 2.8rem;
+	margin-top: 3rem;
+}
+.submitBtn:hover {
+	background-color: var(--mainColorLight);
+	transform: translateY(-0.091rem) !important;
+}
+
+.input:focus + .label {
+	color: var(--grayColorTexts);
+	opacity: 1;
+	font-size: 2rem;
+	top: -2.4rem;
+}
+.inputM:focus + .label {
+	top: -2.4rem;
+	font-size: 2rem;
+	color: var(--grayColorText);
+	opacity: 1;
+}
+.input:focus {
+	border: thin solid var(--grayColor);
+	opacity: 1;
+}
+.inputM:focus {
+	border: thin solid var(--grayColor);
+}
+
+.input:not(:placeholder-shown) + .label {
+	color: var(--grayColorText);
+	font-weight: 500;
+	opacity: 1;
+}
+.inputM:not(:placeholder-shown) + .label {
+	color: var(--grayColorText);
+	font-weight: 600;
+	opacity: 1;
+}
+
+/*  ------------- contact section starts ---  */
+.contact {
+	margin-top: 4rem;
+}
+.contact_main {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 4rem;
+	align-items: center;
+}
+.contact_info {
+	width: 48%;
+	margin: auto;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 1rem;
+}
+.contact_info_data {
+	flex-basis: 40%;
+	color: var(--grayColorText);
+	background-color: var(--grayWhiteLight);
+	border-radius: 0.1rem;
+	padding: 5% 0% 5% 5%;
+}
+.contact_info_data:hover {
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.162);
+}
+.contact_info_icon {
+	margin-left: 1refm;
+	font-size: 5rem;
+	font-weight: 600;
+	width: 5rem;
+	height: 5rem;
+}
+.contact_info_icon svg {
+	color: var(--mainColor);
+}
+
+.contact_info_type {
+	margin-top: 2.44rem;
+	font-size: 2.8rem;
+	font-weight: 600;
+	text-transform: capitalize;
+	letter-spacing: 0.1rem;
+}
+.contact_info_vaue {
+	margin-top: 0.8rem;
+	margin-bottom: 0.5rem;
+	letter-spacing: 0.09rem;
+	line-height: 1.4em;
+	font-size: 1.8rem;
+	font-weight: 100;
+}
+.address .contact_info_vaue,
+.open_hours .contact_info_vaue {
+	text-transform: uppercase;
+}
+
+.contact_form {
+	background-color: rgba(250, 250, 249, 0.988);
+	width: 48%;
+	margin: auto;
+	padding: 2rem;
+	padding-top: 4rem;
+	position: relative;
+}
+.contact_form_message {
+	border-color: var(--white);
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.176);
+	flex-basis: 70%;
+	margin: 2rem auto;
+	border-radius: 0.8rem;
+	padding: 5%;
+	display: flex;
+	flex-flow: column;
+	gap: 1rem;
+	letter-spacing: 0.09rem;
+	font-size: 1.6rem;
+	text-align: center;
+	display: none;
+}
+.contact_form_message_visible {
+	display: block !important;
+}
+.contact_form_error {
+	font-size: 1.8rem;
+	position: absolute;
+	top: -1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	padding: 0.5rem 1rem !important
+	;
+	border-radius: 0.4rem;
+	text-align: center;
+	border: solid thin var(--mainColorDark);
+	color: var(--mainColor);
+	display: none;
+}
+.contact_form_error_visible {
+	display: block;
+}
+.contact_form .inputContainer {
+	position: relative;
+	height: 8rem;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 1.7rem;
+}
+.contact_form .inputContainerM {
+	height: 12rem;
+	width: 80% !important;
+}
+
+.contact_form .input {
+	border: 0.1rem solid #492d253f;
+	border-radius: 0.4rem;
+	opacity: 1;
+	font-size: 1.8rem;
+	font-weight: 100;
+	width: 90%;
+}
+
+.contact_form .input:focus {
+	border: 0.1rem solid #492d25a0;
+}
+.contact_form .inputContainerM .inputM {
+	width: 90%;
+	border: 0.1rem solid #492d253f;
+	font-size: 1.8rem;
+}
+.inputContainerM .inputM:hover {
+	border: 0.1rem solid #492d25a0;
+}
+
+.contact_form ::placeholder {
+	color: var(--grayColorText);
+	text-transform: capitalize;
+}
+
+.contact_form .submitBtn {
+	margin: auto;
+	padding: 1.4rem 3.2rem;
+}
+.submitBtn:hover {
+	background-color: var(--mainColorLight);
+	transform: translateY(-2px);
+}
+/* ----------------  footer section starts ------------------- */
+
+.footer {
+	margin-bottom: -0.5rem;
+	padding-top: 2rem;
+	background-color: #212529;
+	background-color: var(--grayColorText);
+	color: white;
+	text-align: center;
+}
+.footer_links {
+	display: flex;
+	width: fit-content;
+	margin: auto;
+	gap: 1rem;
+}
+/* .footer_links li {
+} */
+.footer_links li svg {
+	width: 100%;
+}
+.footer_links li a svg {
+	color: var(--mainColor);
+	font-size: 3rem;
+	border-radius: 50%;
+	transition: color 0.3s;
+}
+.footer_links li a svg:hover {
+	font-size: 3rem;
+	color: var(--grayWhite);
+}
+
+.footer h2 {
+	font-size: 2.2rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	width: 90%;
+	margin: 0rem auto;
+	text-align: center;
+	line-height: 1.2em;
+	letter-spacing: 0.1rem;
+}
+.footer .copyright {
+	margin-top: 2rem;
+	font-size: 1.8rem;
+}
+.footer .developer_right {
+	width: fit-content;
+	margin: 0.22rem auto;
+	font-size: 1.8rem;
+	padding-bottom: 1rem;
+}
+.footer .developer_right .me {
+	font-size: 2rem;
+	color: var(--mainColorLight);
+}
+
+/* ----------------  other section starts ------------------- */
+
+		</style>
+	</head>
+	<body>
+			<!--  -----------_ heros section starts ----------- -->
+			<div class="navbar">
+				<a class="navbar_left" href="#">
+					<div class="logo_bar">
+						<hr class="span" />
+						<hr class="span" />
+						<hr class="span" />
+					</div>
+					<h2 class="header_name title">nane furnitures</h2>
+				</a>
+				<div class="navbar_right">
+					<ul class="navbar_list">
+						<li><a href="#hero" class="navbar_link">home</a></li>
+						<li><a href="#about" class="navbar_link">about</a></li>
+						<li><a href="#catagories" class="navbar_link">catagories</a></li>
+						<li><a href="#products" class="navbar_link">products</a></li>
+						<li><a href="#contact" class="navbar_link">contact</a></li>
+					</ul>
+					<button class="lang">english</button>
+					<div class="humburger">
+						<hr class="span" />
+						<hr class="span" />
+						<hr class="span" />
+					</div>
+				</div>
+				<ul class="toggle_list toggle_off">
+					<div class="navbar_left">
+						<div class="logo_bar">
+							<hr class="span" />
+							<hr class="span" />
+							<hr class="span" />
+						</div>
+						<h2 class="header_name title">wabegotte</h2>
+					</div>
+					<button class="close_toggle">&times;</button>
+					<li><a href="#hero">home</a></li>
+					<li><a href="#about">about</a></li>
+					<li><a href="#catagories">catagories</a></li>
+					<li><a href="#products">products</a></li>
+					<li><a href="#contact">contact</a></li>
+				</ul>
+			</div>
+
+			<section id="hero" class="hero">
+				<div class="hero_text ">
+					<div>
+						<div class="hero_main">
+						<h1 class="company_name">nane</h1>
+						 furnitures<br />
+						
+					   </div>
+						
+					<h4 class="hero_sub">
+						we dedicate to proived beautiful and modern furnitures and<br />
+					metal work cheaper
+					</h4>
+					
+					<div class="home_btn">
+						<button class="btn hero_btn">Discover more</button>
+					    <button class=" hero_btn order_now">Order Now</button>
+					</div>
+					
+				</div>
+					
+				</div>
+				<div class="hero_image">
+					
+					<img src="/image/static/home.jpg" alt="sofaFOrLandingPage" />
+				</div>
+			</section>
+			<!--  ------------_ heros section ends ------------ -->
+
+			<!--  -------------- heros section ends ------------ -->
+			<section id="about" class="about ">
+				<div class="about_left">
+					<div class="about_header section_title">about us</div>
+						
+					<p class="about_main_text">
+					who we are  
+					</p>
+					<p class="about_sub_text">
+						nane furnitures is  furniture manufacturing private limited company founded by  <span class="nane_name">yidnekachew asfaw(nane) </span> located at kaffa,gimbo.
+					</p>
+					<p class="about_main_text">
+					why you choose us 
+					</p>
+					<p class="about_sub_text">
+						we are group of talented   wooden workers with more than 15 years committing our effort  to provide you  modern, well designed, beautiful and durable furnitures  on time.
+					</p> 
+							<button  class="btn about_btn about_btn_more"
+								>Read more <span class="arrow">&rightarrow;</span></button 
+							>
+						
+				</div>
+				<div class="about_right">
+					
+				    <div class="about_images">
+						<img
+								class="about_image about_image-2"
+								src="/image/static/quality.jpg"
+							/>
+						<img
+								class="about_image about_image-3"
+								src="/image/static/about_bed-1.jpg"
+							/>
+						<img
+								class="about_image about_image-1"
+								
+								src="/image/static/about_sofa.png"
+							
+
+							/>
+					</div>
+				
+				</div>
+			</section>
+			
+			
+			<section class="catagories" id="catagories">
+				<h1 class="section_title">catagories</h1>
+				<div class="catagories_main">
+
+					<div class="catagory" data-search="sofa">
+						<div class="catagory_text">
+							<h4 class="catagory_name">sofas</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									20,000 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/sofa_red.jpg"
+								alt="sofa"
+							/>
+						</div>
+					</div>
+
+					<div class="catagory" data-search="bed">
+						<div class="catagory_text">
+							<h4 class="catagory_name">beds</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									22,000 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/beds_white.jpg"
+								alt="bed"
+							/>
+						</div>
+					</div>
+
+					<div class="catagory" data-search="closet">
+						<div class="catagory_text">
+							<h4 class="catagory_name">closets</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									17,000 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/closet_red.jpg"
+								alt="closet"
+							/>
+						</div>
+					</div>
+					
+					<div class="catagory" data-search="table">
+						<div class="catagory_text">
+							<h4 class="catagory_name">tables</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									21,000 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/table_red.jpg"
+								alt="table"
+							/>
+						</div>
+					</div>
+
+					<div class="catagory" data-search="chair">
+						<div class="catagory_text">
+							<h4 class="catagory_name">chairs</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									17,400 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/red_charis.jpg"
+								alt="chair"
+							/>
+						</div>
+					</div>
+
+					<div class="catagory" data-search="door">
+						<div class="catagory_text">
+							<h4 class="catagory_name">doors</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									15,400 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/door.jpg"
+								alt="bed"
+							/>
+						</div>
+					</div>
+
+					<div class="catagory" data-search="dressing">
+						<div class="catagory_text">
+							<h4 class="catagory_name">dressings</h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									14,700 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/dressing_red.jpg"
+								alt="dressing"
+							/>
+						</div>
+					</div>
+
+					<div class="catagory" data-search="cabnet">
+						<div class="catagory_text">
+							<h4 class="catagory_name">kichen cabnets </h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									13,500 <span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="../../public/image/catagories/static/cabnet.jpg"
+								alt="kichen cabnet"
+							/>
+						</div>
+					</div>
+
+					<!-- <% catagories.forEach(catagory=>{%>
+					<div class="catagory" data-search="<%=catagory.type%>">
+						<div class="catagory_text">
+							<h4 class="catagory_name"><%=catagory.type%></h4>
+							<div class="catagory_pricing">
+								<p class="catagory_price">
+									<%=catagory.startingPrice%><span class="price_name">
+										birr
+									</span>
+								</p>
+								<p class="catagory_pricing_text">Prices Start at</p>
+							</div>
+						</div>
+						<div class="catagory_image">
+							<p class="catagory_image_overlay"></p>
+							<img
+								src="data:image/png; base64,<%=catagory.image%>"
+								alt="<%=catagory.type%>"
+							/>
+						</div>
+					</div>
+					<%})%> -->
+				</div>
+			</section>
+			<section class="products" id="products">
+				<div class="section_header products_header">
+					<h2 class="section_title products_title">products</h2>
+					<div class="header-search">
+						<form class="product_search" action="">
+							<input
+								type="text"
+								name="search"
+								placeholder="&#xF002; Search"
+								style="font-family: Arial, FontAwesome"
+								class="search_input"
+							/>
+						</form>
+					</div>
+					<p class="search_error"> 
+						No product is associated with you search 	
+						
+						!</p>
+				</div>
+						<div class="products_main">
+							
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_yellow.jpg"
+										alt="sofa_yellow"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">yellow  sofa </li>
+		
+										<li class="productId">static_sofa_yellow.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/bed_white.jpg"
+										alt="bed_white"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">wide withe bed </li>
+		
+										<li class="productId">static_bed_white.jpg</li>
+										<li class="type">bed</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/closet.jpg"
+										alt="closet"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name"> brown closet </li>
+		
+										<li class="productId">static_closet.jpg</li>
+										<li class="type">closet</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/table_red.jpg"
+										alt="sofa_blue"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name"> table with red chairs </li>
+		
+										<li class="productId">static_table_red.jpg</li>
+										<li class="type">table</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_blue-2.jpg"
+										alt="sofa_blue"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">blue  sofa </li>
+		
+										<li class="productId">static_sofa_blue-2.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_red.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">red leather sofa </li>
+		
+										<li class="productId">static_sofa_red.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>							
+							
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/bed_red.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">brownish bed  </li>
+		
+										<li class="productId">static_sofa_red.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_gray.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">gray sofa  </li>
+		
+										<li class="productId">static_sofa_gray.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/table_gray.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">table with gray tables</li>
+		
+										<li class="productId">static_table_gray.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/closet_brown.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name"> brownish closet </li>
+		
+										<li class="productId">static_closet_brown.jpg</li>
+										<li class="type">closet</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/bed_red-2.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">red bed </li>
+		
+										<li class="productId">static_bed_red-2.jpg</li>
+										<li class="type">bed</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_leather_small.jpg"
+										alt="sofa"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">leather sofa </li>
+		
+										<li class="productId">static_sofa_leather_small.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_leather.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">brown  leather sofa </li>
+		
+										<li class="productId">static_sofa_leather.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/sofa_red_white.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">white touch red sofa  </li>
+		
+										<li class="productId">static_sofa_red_white.jpg</li>
+										<li class="type">sofa</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/dressing_red.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">brownish dressing  </li>
+		
+										<li class="productId">static_dressing_red.jpg</li>
+										<li class="type">dressing</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/red_charis.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">red charis  </li>
+		
+										<li class="productId">static_red_charis.jpg</li>
+										<li class="type">chair</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/cabnet.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name">kichen cabnet  </li>
+		
+										<li class="productId">static_cabnet.jpg</li>
+										<li class="type">kichen cabnet</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										 5% discount 
+									</div>
+		
+									<img
+										src="../../public/image/products/static/door.jpg"
+										alt="sofa_red"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name"> brownish door   </li>
+		
+										<li class="productId">static_door.jpg</li>
+										<li class="type">door</li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value">negotiatable</span>
+										
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value">ngotiatable</span>
+											
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							</div>
+
+
+
+
+
+
+
+							<!-- <%products.forEach(product=>{%>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										<%if(product.discount){ %> <%=product.discount%>
+										<%}%><%if(!product.discount){ %> 5% discount <%}%>
+									</div>
+		
+									<img
+										src="data:image/png; base64,<%=product.image%>"
+										alt=" table_full"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name"><%=product.productName%></li>
+		
+										<li class="productId"><%=product.id%></li>
+										<li class="type"><%=product.type%></li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value"><%=product.priceString%></span>
+											
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value"><%=product.deliveryString%></span>
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
+							
+							<% })%> -->
+						</div>
+					<button class="btn btn-page <%if(!pagination.page){%> btn-page_invisible<%}%>" pageData="2" productData ="all" >more  </button>
+			
+			</section>
+			<section class="order" id="order">
+				<h1 class="section_title">Order us</h1>
+				<p class="order_form_error"></p>
+				<div class="order_main">
+					<form class="order_form" action="/orders" method="POST">
+						<div class="containTwo">
+							<input type="hidden" class="input inputId" name="productId" />
+							<input type="hidden" class="input inputType" name="type" />
+
+							<div class="inputContainer">
+								<input
+									type="text"
+									class="input"
+									placeholder="a"
+									name="fullname"
+								/>
+								<label for="" class="label labelFullName">full Name</label>
+							</div>
+							<div class="inputContainer">
+								<input type="text" class="input" placeholder="a" name="phone" />
+								<label for="" class="label labelPhone"> Phone Number</label>
+							</div>
+						</div>
+
+						<div class="containTwo">
+							<div class="inputContainer">
+								<input
+									type="text"
+									class="input"
+									placeholder="a"
+									name="address"
+								/>
+								<label for="" class="label labelAddress">Address</label>
+							</div>
+
+							<div class="inputContainer">
+								<input
+									type="email"
+									class="input"
+									placeholder="a"
+									name="email"
+								/>
+								<label for="" class="label labelEmail"
+									>Email<span class="optional">optional</span></label
+								>
+							</div>
+						</div>
+
+						<div class="inputContainer inputContainerM">
+							<textarea
+								class="inputM"
+								name="description"
+								name="comment"
+							></textarea>
+							<label for="" class="label">Order Comment </label>
+						</div>
+
+						<input type="submit" class="submitBtn" value="Order Now" />
+					</form>
+					<div class="order_form_message">
+						<h1>
+							ውድ ደንበኛችን በ <span class="order_owner"> </span> ስም ያዘዙት የ
+							<span class="order_product"></span> ትዕዛዝ በትክክል ደርሶናል !
+						</h1>
+						<h2 class="message_header">⭐ እኛን ስለመረጡ እናመሰግኛለን ⭐</h2>
+					</div>
+				</div>
+			</section>
+			<section class="contact" id="contact">
+				<h1 class="section_title">Contact</h1>
+				<div class="contact_main">
+					<div class="contact_info">
+						<div class="contact_info_data address">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+									<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">address</p>
+							<p class="contact_info_vaue">
+								south west ,kaffa<br />
+								gimbo ,mehal Ketema
+							</p>
+						</div>
+
+						<div class="contact_info_data phone">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">Phone</p>
+							<p class="contact_info_vaue">
+								+251 927586075<br />
+								+251 927586075
+							</p>
+						</div>
+
+						<div class="contact_info_data email">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+									<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">email</p>
+							<p class="contact_info_vaue">
+								wabegotte@example.com <br />
+								wabegotte@we.com
+							</p>
+						</div>
+
+						<div class="contact_info_data open_hours">
+							<div class="contact_info_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icons" width="60" height="40" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+								  </svg>
+							</div>
+							<p class="contact_info_type">open hours</p>
+							<p class="contact_info_vaue">
+								monday- saturday <br />
+								8:00am - 5:00 pm
+							</p>
+						</div>
+					</div>
+
+					<form class="contact_form">
+						<div class="contact_form_message">
+							<h1>ውድ ደንበኛችን የሰጡንን አስተያየት ተቀብልናል !</h1>
+						</div>
+						<p class="contact_form_error"></p>
+						<div class="inputContainer">
+							<input
+								type="text"
+								class="input"
+								placeholder="full name"
+								name="fullName"
+							/>
+						</div>
+
+						<div class="inputContainer">
+							<input
+								type="email"
+								class="input"
+								placeholder="Email /phone number "
+								name="email"
+							/>
+						</div>
+
+						<div class="inputContainer">
+							<input
+								type="text"
+								class="input"
+								placeholder="subject"
+								name="subject"
+							/>
+						</div>
+
+						<div class="inputContainer s inputContainerM">
+							<input class="inputM" name="message" placeholder="message" />
+						</div>
+
+						<input type="submit" class="submitBtn" value="Send Message " />
+					</form>
+				</div>
+			</section>
+
+			<section class="footer">
+				<h2>ለምቾትዎ በጥንቃቄ የተቀረጹ የእንጨት ዉጤቶች ለማቅረብ እንጨነቃልን !</h2>
+				<br />
+				<ul type="none" class="footer_links">
+					<li>
+						<a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icons" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+							<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+						  </svg></a>
+					</li>
+					<li>
+						<a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="icons" width="20" height="20" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+						  </svg>  </a>
+					</li>				</ul>
+				<p class="copyright">Copryright &copy; 2022 Reserved wabegotte plc.</p>
+				<p class="developer_right">
+					developed by
+					<a href="mailto:nati7fekadu@gmail.com" class="me andMe">Natty-7</a>
+				</p>
+			</section>
+		</div>
+	
+	</body>
+</html>

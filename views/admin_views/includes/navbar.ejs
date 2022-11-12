@@ -1,0 +1,40 @@
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar_left">
+          <%if(admin){%>
+            <h2 class="header_name title"><ion-icon name="contact"></ion-icon>
+                <%=admin.username%> </h2>
+       <% }%>
+          <%if(!admin){%>
+            <h2 class="header_name header_name_title">wabegotte</h2>
+       <% }%>
+        </div>
+        <div class="navbar_right">
+            <%if(admin){%>
+                <a href="/admin/logout" class="lang">logout</a>
+                <div class="humburger">
+                    <hr class="span" />
+                    <hr class="span" />
+                    <hr class="span" />
+                </div>
+           <% }%>
+           
+        </div>
+        <ul class="toggle_list ">
+            <div class="navbar_left">
+                
+                <h2 class="header_name title">wabegotte</h2>
+            </div>
+            <button class="close_toggle">&times;</button>
+            <li><a href="/admin/orders">orders</a></li>
+            <li><a href="/admin/products"> products </a></li>
+            <li><a href="/admin/catagories"> catagories</a></li>
+            <li><a href="/admin/commentList">comments</a></li>
+            <li><a href="/admin/setting"> Setting</a></li>
+        </ul>
+    </div>
+    <div class="admin_main visible_main ">
+        <h2 class="partTitle"> <%= pageTitle%></h2>
+
+   

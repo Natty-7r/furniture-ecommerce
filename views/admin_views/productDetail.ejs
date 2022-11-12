@@ -1,0 +1,34 @@
+<%- include('./includes/head.ejs') %>
+<link href="/style/admin/orderDetail.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs') %>
+   <a href="/admin/products" class="backBtn"> &LeftArrow; back</a>
+   <a href="/admin/deleteProduct/<%=product.id%>" class="btn clear_btn">Delete </a>
+ 
+			<div class="order_detail product_detail">
+				<div class="detail_image product_image">
+					<img src="/image/products/<%=product.image%>" alt="name" />
+				</div>
+				<div class="detail_text product_text">
+					<div class="detail_text_value">
+						<p class="text_value_name"> product Type</p>
+						<p class="text_value_data"><%=product.type%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">product Name </p>
+						<p class="text_value_data"><%=product.productName%></p>
+					</div>
+					
+					<div class="detail_text_value">
+						<p class="text_value_name">price  </p>
+						<p class="text_value_data"><%=product.priceString%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">delivery</p>
+						<p class="text_value_data"><%=product.deliveryString%></p>
+					</div>
+					</div>
+				</div>
+			</div>
+		
+	</body>
+</html>

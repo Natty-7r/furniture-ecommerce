@@ -1,0 +1,111 @@
+/* order detail */
+*,
+*::after,
+*::before {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+:root {
+	font-size: 10px;
+	--mainColorDark: #bd8e4a;
+	--mainColor: #f59f00;
+
+	--grayLight: #724935;
+	--grayColorText: #492d25;
+	--grayColor: #495057;
+	--grayColorLight: #868e96;
+	--grayWhiteLight: #fafaf9fc;
+	--white: #fff;
+	--grayWhite: #e8e3dd;
+}
+.setting {
+	list-style: none;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%);
+	display: flex;
+	flex-flow: column;
+	gap: 2rem;
+	background-color: var(--white);
+	box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.233);
+	border-radius: 0.1rem;
+	width: 80%;
+	padding: 20% 10%;
+}
+.setting h2 {
+	font-size: 2.4rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	margin-bottom: 2rem;
+	color: var(--mainColor);
+	text-decoration: underline;
+}
+.setting .setting_header_message {
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.3em;
+	/* color: var(--grayColorText); */
+}
+.setting li a {
+	display: block;
+	font-size: 2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	margin-left: auto;
+	padding: 5%;
+	color: hsl(0, 0%, 0%);
+	border: solid thin var(--mainColor);
+	border-radius: 0.4rem;
+	width: 100%;
+	transition: 0.3s;
+}
+.setting li a:hover {
+	background-color: var(--mainColor);
+	color: var(--white);
+	border-radius: 5rem;
+}
+.setting .settingList {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.6rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	margin-left: auto;
+	padding: 5%;
+	color: hsl(0, 0%, 0%);
+	border: solid thin var(--mainColor);
+	border-radius: 0.4rem;
+	width: 100%;
+}
+.setting .settingList a {
+	font-size: 1.2rem;
+	background-color: var(--mainColor);
+	color: var(--white);
+	width: 45%;
+}
+.backBtn {
+	display: block;
+	margin-top: -1rem;
+	background-color: var(--mainColor);
+	color: var(--white);
+	width: fit-content;
+	padding: 1rem 2rem;
+	z-index: 0;
+}
+.setting_header_message {
+	font-size: 1rem;
+}
+.setting_header {
+	font-size: 1.8rem !important;
+	text-align: center;
+}

@@ -1,0 +1,26 @@
+<%- include('./includes/head.ejs') %>
+<link href="/style/admin/orderDetail.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs') %>
+   <a href="/admin/catagories" class="backBtn"> &LeftArrow; back</a>
+   <a href="/admin/deleteCatagory/<%=catagory.id%>" class="btn clear_btn">Delete </a>
+
+			<div class="order_detail product_detail">
+				<div class="detail_image product_image">
+					<img src="/image/catagories/<%=catagory.image%>" alt="name" />
+				</div>
+				<div class="detail_text product_text">
+					<div class="detail_text_value">
+						<p class="text_value_name"> product Type</p>
+						<p class="text_value_data"><%=catagory.type%></p>
+					</div>
+					<div class="detail_text_value">
+						<p class="text_value_name">starging price</p>
+						<p class="text_value_data"><%=catagory.startingPrice%></p>
+					</div>
+					
+					</div>
+				</div>
+			</div>
+		
+	</body>
+</html>

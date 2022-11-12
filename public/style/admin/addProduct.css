@@ -1,0 +1,168 @@
+/* order detail */
+*,
+*::after,
+*::before {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+:root {
+	font-size: 10px;
+	--mainColorDark: #bd8e4a;
+	--mainColor: #f59f00;
+
+	--grayLight: #724935;
+	--grayColorText: #492d25;
+	--grayColor: #495057;
+	--grayColorLight: #868e96;
+	--grayWhiteLight: #fafaf9fc;
+	--white: #fff;
+	--grayWhite: #e8e3dd;
+}
+
+.order_list_detail {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	height: 88vh;
+	padding: 0rem;
+}
+
+.add_prouduct_form {
+	position: relative;
+	padding: 15% 0rem;
+	width: 90%;
+	align-self: center;
+	margin-left: -3%;
+	padding-top: 20%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	box-shadow: 0rem 10rem 20rem rgba(0, 0, 0, 0.243);
+	background-color: var(--white);
+	color: var(--grayColorText);
+	gap: 2rem;
+}
+.add_catagory_form {
+	position: relative;
+	margin-top: 15%;
+}
+.login_form {
+	margin-top: 25%;
+}
+.add_prouduct_form .inputContainer {
+	height: 5rem;
+	width: 70%;
+	display: flex;
+	flex-flow: column;
+	gap: 0.3rem;
+}
+.add_prouduct_form .inputContainer .input {
+	height: 5rem;
+	border: solid thin black;
+	border-radius: 0.2rem;
+	outline: none;
+	border: solid 0.1px var(--grayColorLight);
+	padding: 0.5rem;
+	font-size: 1.6rem;
+}
+.add_prouduct_form .inputContainer .file {
+	height: 5rem;
+	border: none;
+	outline: none;
+	border-radius: 0.2rem;
+	width: fit-content;
+	border: none;
+}
+.inputContainer label {
+	text-transform: capitalize;
+	font-size: 1.4rem;
+	letter-spacing: 0.08rem;
+	font-weight: 600;
+}
+.btn {
+	padding: 1.2rem 3.2rem;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	background-color: var(--mainColor);
+	color: white;
+	border-radius: 0.3rem;
+	letter-spacing: 0.05rem;
+}
+.error_message {
+	width: 80%;
+	margin: auto;
+	position: absolute;
+	text-align: center;
+	top: 2rem;
+	color: var(--mainColor);
+	font-size: 1.6rem;
+	letter-spacing: 0.09rem;
+}
+.add_success {
+	color: var(--grayColorText);
+}
+.image_notice {
+	background-color: var(--white);
+	width: 90%;
+	margin: auto;
+	font-size: 2rem;
+	box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.434);
+	padding: 15% 10%;
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	border-radius: 0.4rem;
+	color: var(--mainColor);
+}
+.notice_btns {
+	width: 80%;
+	margin: auto;
+	margin-top: 2.4rem;
+	display: flex;
+	justify-content: space-between;
+}
+.notice_btn {
+	width: fit-content;
+	padding: 1rem 2rem;
+	background-color: var(--mainColorDark);
+	color: var(--white);
+	text-transform: capitalize;
+	border-radius: 0.4rem;
+}
+.notice_btn:hover {
+	background-color: var(--mainColor);
+}
+.image_form {
+	display: none;
+}
+.backBtn {
+	display: block;
+	margin-top: -1.5rem;
+	margin-bottom: 1rem;
+	background-color: var(--mainColor);
+	color: var(--white);
+	width: fit-content;
+	padding: 1rem 2rem;
+	z-index: 0;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+}
+.multiple {
+	position: absolute;
+	top: 9.5%;
+	right: 1rem;
+	border: solid var(--mainColor);
+	font-size: 1.6rem;
+	padding: 0.8rem 2rem;
+	letter-spacing: 0.05rem;
+	text-transform: capitalize;
+}
+.multiple_on {
+	background-color: var(--mainColor);
+	color: var(--white);
+}

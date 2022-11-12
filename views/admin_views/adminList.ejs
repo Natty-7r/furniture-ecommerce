@@ -1,0 +1,21 @@
+<%- include('./includes/head.ejs') %>
+<link href="/style/admin/setting.css" rel="stylesheet" />
+<%- include('./includes/navbar.ejs') %>
+<a href="/admin/setting" class="backBtn"> back &LeftArrow;</a>
+			<ul class="setting">
+                <%if(admins.length==0){%>
+                    <h2 class="setting_header   <%if(admins.length>0){%> setting_header_message<%}%>"> Your are the only admin for  now
+                      <br /><br /> ለጊዜው ያሉት  ADMIN እሶ ብቻ  ኖት  </h2>
+                    <%}%>
+                    
+            
+                <%if(admins.length>0){%>
+                <h2 class="setting_header"> admins </h2>
+                  <%admins.forEach(admin=>{%>
+                    <li><p class="settingList" ><%=admin.username%> <a href="/admin/setting/deleteAdmin/<%=admin.id%>">remove</a> </p></li>
+                 <% })%>
+                <%}%>
+            </ul>
+		
+	</body>
+</html>

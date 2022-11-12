@@ -1,0 +1,40 @@
+
+<%- include('./includes/head.ejs')%>
+<link href="/style/admin/orderList.css" rel="stylesheet" />
+
+<%- include('./includes/navbar.ejs')%>
+  
+<%if(orders.length==0){%>
+	<h1 style="text-align: center;"> እስካሁን ምንም ትዕዛዝ የለም !</h1>
+	<br />
+	<h1 style="text-align: center; letter-spacing: .9px;"> NO ORDER YET  !</h1>
+	
+	<%}%>
+	<%if(orders.length>0){%>
+		<a href="/admin/clearOrders" class="btn clear_btn">clear all</a>
+	<div class="order_lists">
+		<div class="order_list_header">
+			<p class="order_number header_name">no</p>
+			<p class="order_owner header_name">ሙሉ ስም</p>
+			<p class="order_type header_name">የዕቃ እይነት </p>
+			<p class="order_phone header_name">ስንክ ቁጥር</p>
+			<p class="order_address header_name">እድራሻ</p>
+			<p class="order_date header_name">  ቀን</p>
+		</div>
+		<div class="order_list_values" >
+				<% orders.forEach(order=>{%>
+					<a class="order_list" href="orders/<%=order.productId%>*<%=order.id%>">
+						<p class="order_number order_list_value"><%=order.id%></p>
+						<p class="order_owner order_list_value"><%=order.fullName%></p>
+						<p class="order_type order_list_value"><%=order.type%></p>
+						<p class="order_phone order_list_value"><%=order.phone%></p>
+						<p class="order_address order_list_value"><%=order.address%></p>
+						<p class="order_date order_list_value"><%=order.date%></p>
+					</a>
+					<%})%>
+				</div>
+			</div>
+			<%}%>
+ 
+	</body>
+</html>
