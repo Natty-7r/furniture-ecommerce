@@ -954,7 +954,7 @@ li span {
 .inputContainerM .inputM {
 	height: 100%;
 	width: 100%;
-	border: 0.1rem solid #dadce0;
+	border: solid thin #bd8d4a99;
 	border-radius: 0.4rem;
 	font-size: 1.6rem;
 	padding: 1rem 2rem;
@@ -1240,20 +1240,20 @@ li span {
 }
 
 .contact_form .input {
-	border: 0.1rem solid #492d253f;
+	border: solid thin #bd8d4a99;
 	border-radius: 0.4rem;
 	opacity: 1;
 	font-weight: 100;
 }
 
 .contact_form .input:focus {
-	border: 0.1rem solid #492d25a0;
+	border: solid thin #bd8d4af9;
 }
 .inputContainerM .inputM {
-	border: 0.1rem solid #492d253f;
+	border: solid thin #bd8d4a99;
 }
 .inputContainerM .inputM:hover {
-	border: 0.1rem solid #492d25a0;
+	border: solid thin #bd8d4af9;
 }
 
 .contact_form ::placeholder {

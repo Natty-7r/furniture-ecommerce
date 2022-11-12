@@ -1015,7 +1015,7 @@ li span {
 .inputM {
 	height: 100%;
 	width: 90%;
-	border: 0.1rem solid #dadce0;
+	border: solid thin #bd8d4a99;
 	border-radius: 0.4rem;
 	padding: 1rem 2rem;
 	outline: none;
@@ -1079,11 +1079,11 @@ li span {
 	opacity: 1;
 }
 .input:focus {
-	border: thin solid var(--grayColor);
+	border: solid thin hsla(35, 47%, 52%, 1);
 	opacity: 1;
 }
 .inputM:focus {
-	border: thin solid var(--grayColor);
+	border: solid thin hsla(35, 47%, 52%, 1);
 }
 
 .input:not(:placeholder-shown) + .label {
