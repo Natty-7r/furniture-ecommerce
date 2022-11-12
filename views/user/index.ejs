@@ -153,13 +153,9 @@
 			
 			
 			<section class="catagories" id="catagories">
+				<% catagories.forEach(catagory=>{%>
 				<h1 class="section_title">catagories</h1>
-
-					<div class="catagories_main">
-						
-						
-                   <% catagories.forEach(catagory=>{%>
-    
+					<div class="catagories_main">			
 						<div class="catagory" data-search="sofa">
 							<div class="catagory_text">
 								<h4 class="catagory_name"><%=catagory.type%>s</h4>
