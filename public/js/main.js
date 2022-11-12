@@ -292,7 +292,6 @@ const buying = function () {
 					return;
 				}
 				if (!formError) {
-					// fetch('https://nanefurniture.herokuapp.com/orders', {
 					fetch('/orders', {
 						method: 'POST',
 						body: JSON.stringify({
@@ -429,19 +428,15 @@ const commenting = function () {
 			}
 		}
 
-		fetch(
-			'/contactMessage',
-			// fetch('https://nanefurniture.herokuapp.com/contactMessage',
-			{
-				method: 'POST',
-				body: JSON.stringify({
-					...contactMessage,
-				}),
-				headers: {
-					'Content-type': 'application/json',
-				},
-			}
-		)
+		fetch('/contactMessage', {
+			method: 'POST',
+			body: JSON.stringify({
+				...contactMessage,
+			}),
+			headers: {
+				'Content-type': 'application/json',
+			},
+		})
 			.then((result) => {
 				if (!result.ok)
 					return Promise.resolve({
