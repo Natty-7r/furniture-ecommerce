@@ -154,34 +154,46 @@
 			
 			<section class="catagories" id="catagories">
 				<h1 class="section_title">catagories</h1>
-				<div class="catagories_main">
-					<% catagories.forEach(catagory=>{%>
-					<div class="catagory" data-search="<%=catagory.type%>">
-						<div class="catagory_text">
-							<h4 class="catagory_name"><%=catagory.type%></h4>
-							<div class="catagory_pricing">
-								<p class="catagory_price">
-									<%=catagory.startingPrice%><span class="price_name">
-										birr
-									</span>
-								</p>
-								<p class="catagory_pricing_text">Prices Start at</p>
+
+					<div class="catagories_main">
+						
+						
+                   <% catagories.forEach(catagory=>{%>
+    
+						<div class="catagory" data-search="sofa">
+							<div class="catagory_text">
+								<h4 class="catagory_name"><%=catagory.type%>s</h4>
+								<div class="catagory_pricing">
+									<p class="catagory_price">
+										<%=catagory.startingPrice%> <span class="price_name">
+											birr
+										</span>
+									</p>
+									<p class="catagory_pricing_text">Prices Start at</p>
+								</div>
+							</div>
+							<div class="catagory_image">
+								<p class="catagory_image_overlay"></p>
+								<img
+								src="/image/catagories/<%=catagory.image%>"
+									alt="<%=catagory.startingPrice%>"
+								/>
 							</div>
 						</div>
-						<div class="catagory_image">
-							<p class="catagory_image_overlay"></p>
-							<img
-								src="data:image/png; base64,<%=catagory.image%>"
-								alt="<%=catagory.type%>"
-							/>
-						</div>
-					</div>
-					<%})%>
+						<%})%>
+	
+						
 				</div>
 			</section>
+
+			<!--  -------------- catagories  section ends ------------ -->
+
 			<section class="products" id="products">
+				<%if(products.length>0){%>
 				<div class="section_header products_header">
 					<h2 class="section_title products_title">products</h2>
+
+					<button class="bnt getAll_btn">all products </button>
 					<div class="header-search">
 						<form class="product_search" action="">
 							<input
@@ -198,47 +210,49 @@
 						
 						!</p>
 				</div>
+				<%}%>
 				<div class="products_main">
-					<%products.forEach(product=>{%>
-					<div class="product">
-						<div class="product_image">
-							<div class="discount">
-								<%if(product.discount){ %> <%=product.discount%>
-								<%}%><%if(!product.discount){ %> 5% discount <%}%>
+						<%products.forEach(product=>{%>
+							<div class="product">
+								<div class="product_image">
+									<div class="discount">
+										<%if(product.discount){ %> <%=product.discount%>
+										<%}%><%if(!product.discount){ %> 5% discount <%}%>
+									</div>
+		
+									<img
+										src="/image/products/<%=product.image%>"
+										alt=" table_full"
+									/>
+								</div>
+								<div class="product_text">
+									<ul class="product_text_list">
+										<li class="name"><%=product.productName%></li>
+		
+										<li class="productId"><%=product.id%></li>
+										<li class="type"><%=product.type%></li>
+										<li class="amount ">
+											<span class="amount_name">Price</span>
+											 
+											<span class="amount_value"><%=product.priceString%></span>
+											
+										</li>
+										<li class="days ">
+											<span class="days_name">Delivery Date</span>
+											 
+											<span class="days_value"><%=product.deliveryString%></span>
+										</li>
+									</ul>
+									<button class="buyBtn">buy now</button>
+								</div>
 							</div>
-
-							<img
-								src="data:image/png; base64,<%=product.image%>"
-								alt=" table_full"
-							/>
-						</div>
-						<div class="product_text">
-							<ul class="product_text_list">
-								<li class="name"><%=product.productName%></li>
-
-								<li class="productId"><%=product.id%></li>
-								<li class="type"><%=product.type%></li>
-								<li class="amount ">
-									<span class="amount_name">Price</span>
-									 
-									<span class="amount_value"><%=product.priceString%></span>
-									<!-- <span class="days_value">በድርድር</span> -->
-								</li>
-								<li class="days ">
-									<span class="days_name">Delivery Date</span>
-									 
-									<span class="days_value"><%=product.deliveryString%></span>
-									<!-- <span class="days_value">በድርድር</span> -->
-								</li>
-							</ul>
-							<button class="buyBtn">buy now</button>
-						</div>
-					</div>
-					<% })%>
-				</div>
-					<button class="btn btn-page <%if(!pagination.page){%> btn-page_invisible<%}%>" pageData="2" productData ="all" >more  </button>
-			
+							
+							<% })%> 
+					</div>						
+						
+					<button class="btn btn-page <%if(pagination.page){%> btn-page_invisible <%}%>" pageData="1" productData ="all" >more  </button>
 			</section>
+
 			<section class="order" id="order">
 				<h1 class="section_title">Order us</h1>
 				<p class="order_form_error"></p>
@@ -307,6 +321,7 @@
 					</div>
 				</div>
 			</section>
+			
 			<section class="contact" id="contact">
 				<h1 class="section_title">Contact</h1>
 				<div class="contact_main">
@@ -366,7 +381,7 @@
 
 					<form class="contact_form">
 						<div class="contact_form_message">
-							<h1>ውድ ደንበኛችን የሰጡንን አስተያየት ተቀብልናል !</h1>
+							<h1>ውድ ደንበኛችን የሰጡንን መልዕክት ተቀብልናል !</h1>
 						</div>
 						<p class="contact_form_error"></p>
 						<div class="inputContainer">

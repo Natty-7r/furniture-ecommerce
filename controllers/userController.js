@@ -1,5 +1,5 @@
 const path = require('path');
-const { mainRoot } = require('../util/helper');
+const { mainRoot, EthioDate } = require('../util/helper');
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 
@@ -8,6 +8,7 @@ const Product = require('../models/products');
 const Catagory = require('../models/catagories');
 const Order = require('../models/orders');
 const Message = require('../models/contactMessage');
+const { writeFile } = require('fs');
 
 exports.getIndex = async (req, res, next) => {
 	try {
@@ -16,6 +17,7 @@ exports.getIndex = async (req, res, next) => {
 			page: undefined,
 			type: 'all',
 		};
+
 		const existingProducts = await Product.count();
 		if (existingProducts > numberOfProducts) pagination.page = 2;
 		const products = await Product.findAll({ limit: numberOfProducts });
@@ -45,28 +47,21 @@ exports.getSearchedProducts = async (req, res, next) => {
 
 			const typeMatch = await Product.findAll({
 				where: {
-					[Op.or]: [
-						{
-							productName: { [Op.substring]: searched },
-							type: { [Op.eq]: searched },
-						},
-					],
+					type: searched,
+
+					// [Op.and]: [
+					// 	{
+					// 		productName: { [Op.substring]: searched },
+					// 		type: { [Op.eq]: searched },
+					// 	},3
+					// ],
 				},
 				limit: 6,
 			});
-			const nameMatch = await Product.findAll({
-				where: {
-					[Op.or]: [
-						{
-							productName: { [Op.substring]: searched },
-						},
-					],
-				},
-				limit: 6,
-			});
+			const nameMatch = [];
+
 			products = [...typeMatch, ...nameMatch];
 		}
-
 		if (!products)
 			return res.json({ status: 'fail', data: { cause: 'no products' } });
 		if (products.length == 0)
@@ -75,6 +70,40 @@ exports.getSearchedProducts = async (req, res, next) => {
 			return res.json({ status: 'success', data: { products, pagination } });
 	} catch (error) {
 		next(error);
+	}
+};
+
+exports.getCatagories = async (req, res, next) => {
+	try {
+		let catagories = await Catagory.findAll();
+		if (!catagories)
+			return res.json({
+				status: 'fail',
+				data: { cause: 'no catagories found ' },
+			});
+		if (catagories.length == 0)
+			return res.json({ status: 'fail', data: { cause: 'no catagories' } });
+		if (catagories)
+			return res.json({ status: 'success', data: { catagories } });
+	} catch (error) {
+		if (error) next(error);
+	}
+};
+exports.getCatagoryImage = async (req, res, next) => {
+	try {
+		const catId = req.params.catId;
+		let catagory = await Catagory.findOne({ where: { id: catId } });
+		if (!catagory)
+			return res.json({
+				status: 'fail',
+				data: { cause: 'no catagories found ' },
+			});
+		if (catagory) {
+			const image = catagory.image;
+			return res.json({ status: 'success', data: { image } });
+		}
+	} catch (error) {
+		if (error) next(error);
 	}
 };
 
@@ -125,7 +154,7 @@ exports.getIndexedProducts = async (req, res, next) => {
 exports.postOrders = async (req, res, next) => {
 	try {
 		const now = new Date();
-		const date = now.toDateString();
+		const date = EthioDate(now);
 		const preveData = { ...req.body };
 		const validationError = validationResult(req);
 		if (!validationError.isEmpty())
@@ -166,7 +195,7 @@ exports.PostMessage = async (req, res, next) => {
 				},
 			});
 
-		Message.create({ ...req.body, date: new Date().toDateString() }).then(
+		Message.create({ ...req.body, date: EthioDate(new Date()) }).then(
 			(message) => {
 				return res.json({
 					status: 'success',

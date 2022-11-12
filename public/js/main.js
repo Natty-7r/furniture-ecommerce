@@ -7,6 +7,7 @@ let langAmharic = false;
 let aboutOne = true;
 let aboutStart = true;
 let aboutLangChange = false;
+let allStaticProducts = undefined;
 humburger.addEventListener('click', function () {
 	toggleList.classList.remove('toggle_off');
 	toggleList.classList.add('toggle_on');
@@ -190,7 +191,8 @@ window.addEventListener('scroll', function () {
 
 const buying = function () {
 	// selections
-	let buyTimer;
+	let buyTimer,
+		calledOnce = true;
 	const buyBtns = document.querySelectorAll('.buyBtn');
 	const order = document.querySelector('#order');
 	const orderForm = document.querySelector('.order_form');
@@ -204,6 +206,7 @@ const buying = function () {
 	if (buyBtns)
 		buyBtns.forEach((buyBtn) =>
 			buyBtn.addEventListener('click', function (e) {
+				// calledOnce = true;
 				order.classList.remove('centered_section');
 				order.classList.remove('order_visible');
 				const productId = buyBtn
@@ -232,85 +235,129 @@ const buying = function () {
 		);
 	// when oredr form is submitted
 	orderForm.addEventListener('submit', function (e) {
-		e.preventDefault();
-		//
-		orderErrorMessage.classList.remove('order_form_error_visible');
-		orderSuccedMessage.classList.remove('order_form_message_visible');
-		// data selection
-		const fullName = e.target.elements.fullname.value.trim();
-		const phone = e.target.elements.phone.value.trim();
-		const email = e.target.elements.email.value.trim();
-		const address = e.target.elements.address.value.trim();
-		const productId = e.target.elements.productId.value.trim();
-		const type = e.target.elements.type.value.trim();
-		const description = e.target.elements.description.value.trim();
+		if (!calledOnce) {
+			return;
+		}
+		if (calledOnce) {
+			calledOnce = false;
+			e.preventDefault();
+			//
+			orderErrorMessage.classList.remove('order_form_error_visible');
+			orderSuccedMessage.classList.remove('order_form_message_visible');
+			// data selection
+			const fullName = e.target.elements.fullname.value.trim();
+			const phone = e.target.elements.phone.value.trim();
+			const email = e.target.elements.email.value.trim();
+			const address = e.target.elements.address.value.trim();
+			const productId = e.target.elements.productId.value.trim();
+			const type = e.target.elements.type.value.trim();
+			const description = e.target.elements.description.value.trim();
 
-		const data = {
-			fullName,
-			phone,
-			email,
-			address,
-			productId,
-			type,
-			description,
-		};
+			const data = {
+				fullName,
+				phone,
+				email,
+				address,
+				productId,
+				type,
+				description,
+			};
+			{
+				//handling error
+				let erroMessage,
+					amharicMessage,
+					englishMessage,
+					formError = false;
 
-		fetch('https://nanefurniture.herokuapp.com/orders', {
-			method: 'POST',
-			body: JSON.stringify({
-				...data,
-			}),
-			headers: {
-				'Content-type': 'application/json',
-			},
-		})
-			.then((result) => {
-				if (!result.ok)
-					return Promise.resolve({
-						status: 'fail',
-						data: {
-							message:
-								'ይቅርታ ትዕዛዞ በትክክል አልተላክም ድጋሚ ይሞክሩ ! *  Order failed  please try again  !',
-						},
-					});
-				if (result.ok) return result.json();
-			})
-			.then((orderData) => {
-				console.log('sssssssssssssssss');
-				if (orderData.status == 'fail') {
-					const amharicMessage = orderData.data.message.split('*')[0];
-					const englishMessage = orderData.data.message.split('*')[1];
-					const erroMessage = `${amharicMessage} <br />${englishMessage}`;
+				if (fullName == '') {
+					amharicMessage = ' የሙሉ ስም ቦታ  ባዶ መሆን አይችልም !';
+					englishMessage = " Full፟ name Input can't be empty !";
+					formError = true;
+				} else if (phone == '') {
+					amharicMessage = ' የ  ስልክ ቁጥር  ቦታ  ባዶ መሆን አይችልም !';
+					englishMessage = "Phone number input can't be empty !";
+					formError = true;
+				} else if (address == '') {
+					amharicMessage = ' የ አድራሻ  ቦታ  ባዶ መሆን አይችልም !';
+					englishMessage = " Address  input can't be empty ! ";
+					formError = true;
+				}
+				if (formError) {
+					erroMessage = `${amharicMessage} <br />${englishMessage}`;
 					orderErrorMessage.innerHTML = erroMessage;
 					orderErrorMessage.classList.add('order_form_error_visible');
 					setTimeout(() => {
 						orderErrorMessage.classList.remove('order_form_error_visible');
 					}, 5000);
+					return;
 				}
-				if (orderData.status == 'success') {
-					// clering inputs
-					e.target.elements.fullname.value =
-						e.target.elements.phone.value =
-						e.target.elements.email.value =
-						e.target.elements.address.value =
-						e.target.elements.description.value =
-							'';
-					orderErrorMessage.classList.remove('order_form_error_visible');
+				if (!formError) {
+					// fetch('https://nanefurniture.herokuapp.com/orders', {
+					fetch('/orders', {
+						method: 'POST',
+						body: JSON.stringify({
+							...data,
+						}),
+						headers: {
+							'Content-type': 'application/json',
+						},
+					})
+						.then((result) => {
+							if (!result.ok)
+								return Promise.resolve({
+									status: 'fail',
+									data: {
+										message:
+											'ይቅርታ ትዕዛዞ በትክክል አልተላክም ድጋሚ ይሞክሩ ! *  Order failed  please try again  !',
+									},
+								});
+							if (result.ok) return result.json();
+						})
+						.then((orderData) => {
+							if (orderData.status == 'fail') {
+								const amharicMessage = orderData.data.message.split('*')[0];
+								const englishMessage = orderData.data.message.split('*')[1];
+								const erroMessage = `${amharicMessage} <br />${englishMessage}`;
+								orderErrorMessage.innerHTML = erroMessage;
+								orderErrorMessage.classList.add('order_form_error_visible');
+								setTimeout(() => {
+									orderErrorMessage.classList.remove(
+										'order_form_error_visible'
+									);
+								}, 5000);
+								return;
+							}
+							if (orderData.status == 'success') {
+								// clering inputs
+								e.target.elements.fullname.value =
+									e.target.elements.phone.value =
+									e.target.elements.email.value =
+									e.target.elements.address.value =
+									e.target.elements.description.value =
+										'';
+								orderErrorMessage.classList.remove('order_form_error_visible');
 
-					orderOwner.textContent = orderData.data.order.owner;
-					orderedProduct.textContent = orderData.data.order.orderedProduct;
+								orderOwner.textContent = orderData.data.order.owner;
+								orderedProduct.textContent =
+									orderData.data.order.orderedProduct;
 
-					orderSuccedMessage.classList.add('order_form_message_visible');
+								orderSuccedMessage.classList.add('order_form_message_visible');
 
-					orderForm.classList.remove('order_form_visible');
-					// clearing the order stuffs
-					buyTimer = setTimeout(() => {
-						orderSuccedMessage.classList.remove('order_form_message_visible');
-						order.classList.remove('order_visible');
-						order.classList.remove('centered_section');
-					}, 5000);
+								orderForm.classList.remove('order_form_visible');
+								// clearing the order stuffs
+								buyTimer = setTimeout(() => {
+									orderSuccedMessage.classList.remove(
+										'order_form_message_visible'
+									);
+									order.classList.remove('order_visible');
+									order.classList.remove('centered_section');
+								}, 5000);
+							}
+						});
+					return;
 				}
-			});
+			}
+		}
 	});
 };
 buying();
@@ -334,22 +381,57 @@ const commenting = function () {
 		const message = e.target.elements.message.value.trim();
 		const contactMessage = { fullName, email, subject, message };
 
-		// clearing inputs
-		e.target.elements.fullName.value =
-			e.target.elements.email.value =
-			e.target.elements.subject.value =
-			e.target.elements.message.value =
-				'';
+		{
+			//handling error
+			let erroMessage,
+				amharicMessage,
+				englishMessage,
+				formError = false;
 
-		fetch('https://nanefurniture.herokuapp.com/contactMessage', {
-			method: 'POST',
-			body: JSON.stringify({
-				...contactMessage,
-			}),
-			headers: {
-				'Content-type': 'application/json',
-			},
-		})
+			if (fullName == '') {
+				amharicMessage = ' የሙሉ ስም ቦታ  ባዶ መሆን አይችልም !';
+				englishMessage = " Full፟ name Input can't be empty !";
+				formError = true;
+			} else if (email == '') {
+				amharicMessage = ' የ  ስልክ ቁጥር  ቦታ  ባዶ መሆን አይችልም !';
+				englishMessage = "Phone number input can't be empty !";
+				formError = true;
+			} else if (subject == '') {
+				amharicMessage = '  የ Subject  ቦታ  ባዶ መሆን አይችልም';
+				englishMessage = "subject  input can't be empty ! ";
+				formError = true;
+			} else if (message == '') {
+				amharicMessage = '  የመልዕክት  ቦታ  ባዶ መሆን አይችልም';
+				englishMessage = " Message input can't be empty !  ";
+				formError = true;
+			}
+			if (formError) {
+				erroMessage = `${amharicMessage} <br />${englishMessage}`;
+				contactErrorMessage.innerHTML = erroMessage;
+				contactErrorMessage.classList.add('contact_form_error_visible');
+
+				setTimeout(() => {
+					contactErrorMessage.classList.remove('contact_form_error_visible');
+				}, 5000);
+				return;
+			}
+			if (!formError) {
+			}
+		}
+
+		fetch(
+			'/contactMessage',
+			// fetch('https://nanefurniture.herokuapp.com/contactMessage',
+			{
+				method: 'POST',
+				body: JSON.stringify({
+					...contactMessage,
+				}),
+				headers: {
+					'Content-type': 'application/json',
+				},
+			}
+		)
 			.then((result) => {
 				if (!result.ok)
 					return Promise.resolve({
@@ -367,10 +449,8 @@ const commenting = function () {
 					const englishMessage = data.data.message.split('*')[0];
 					const amharicMessage = data.data.message.split('*')[1];
 					const erroMessage = `${amharicMessage} <br />${englishMessage}`;
-
 					contactErrorMessage.innerHTML = erroMessage;
 					contactErrorMessage.classList.add('contact_form_error_visible');
-
 					// adding privious data
 					e.target.elements.fullName.value = preveData.fullName;
 					e.target.elements.email.value = preveData.email;
@@ -381,6 +461,12 @@ const commenting = function () {
 					}, 5000);
 				}
 				if (data.status == 'success') {
+					// clearing inputs
+					e.target.elements.fullName.value =
+						e.target.elements.email.value =
+						e.target.elements.subject.value =
+						e.target.elements.message.value =
+							'';
 					contactSuccedMessage.classList.add('contact_form_message_visible');
 					contactErrorMessage.classList.remove('contact_form_error_visible');
 					setTimeout(() => {
@@ -583,30 +669,41 @@ buttonsClicked();
 
 const pagination = function () {
 	const createProduct = function (product) {
+		console.log(product);
 		const productElement = document.createElement('div');
 		productElement.classList.add('product');
 		productElement.innerHTML = `
-	<div class="product_image">
-	<div class="discount">				
-		5% discount
-	</div>
-	<img src="/image/products/test/${product.imageUrl}" alt=" table_full" />
-</div>
-<div class="product_text">
-	<ul class="product_text_list">
-		<li class="name">${product.productName}</li>
-		<li class="productId">${product.id}</li>
-		<li class="type">${product.type}</li>
-		<li class="amount"> ዋጋ ፡<br />
-			<p class="amount_value">${product.priceString}</p>
-		</li>
-		<li class="days">እቃው ሚወጣበት ቀን፡ 
-			<p class="days_value">${product.deliveryString}</p>
-		</li>
-			
-	</ul>
-	<button class="buyBtn">buy now</button>
-</div>`;
+		<div class="product_image">
+			<div class="discount">
+				 5% discount 
+			</div>
+
+			<img
+				src="/image/products/${product.image}"
+				alt="sofa_yellow"
+			/>
+		</div>
+		<div class="product_text">
+			<ul class="product_text_list">
+				<li class="name">${product.productName} </li>
+
+				<li class="productId">${product.id}</li>
+				<li class="type">${product.type}</li>
+				<li class="amount ">
+					<span class="amount_name">Price</span>
+					 
+					<span class="amount_value">negotiatable</span>
+				
+				</li>
+				<li class="days ">
+					<span class="days_name">Delivery Date</span>
+					 
+					<span class="days_value">negotiatable</span>
+					
+				</li>
+			</ul>
+			<button class="buyBtn">buy now</button>
+		</div>`;
 		return productElement;
 	};
 	const renderSearched = function (products) {
@@ -621,7 +718,8 @@ const pagination = function () {
 	const pageBtn = document.querySelector('.btn-page');
 
 	const MoreProducts = function (e) {
-		fetch('https://nanefurniture.herokuapp.com/allProducts', {
+		fetch('/allProducts', {
+			// fetch('https://nanefurniture.herokuapp.com/allProducts', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -652,36 +750,49 @@ const pagination = function () {
 			});
 	};
 
-	pageBtn.addEventListener('click', MoreProducts);
+	if (pageBtn) pageBtn.addEventListener('click', MoreProducts);
 };
 pagination();
 
 const searching = function () {
+	allStaticProducts = Array.from(document.querySelectorAll('.product'));
+	let SearchedStatic;
 	const createProduct = function (product) {
 		const productElement = document.createElement('div');
 		productElement.classList.add('product');
 		productElement.innerHTML = `
-	<div class="product_image">
-	<div class="discount">				
-		5% discount
-	</div>
-	<img src="/image/products/test/${product.imageUrl}" alt=" table_full" />
-</div>
-<div class="product_text">
-	<ul class="product_text_list">
-		<li class="name">${product.productName}</li>
-		<li class="productId">${product.id}</li>
-		<li class="type">${product.type}</li>
-		<li class="amount"> ዋጋ ፡<br />
-			<p class="amount_value">${product.priceString}</p>
-		</li>
-		<li class="days">እቃው ሚወጣበት ቀን፡ 
-			<p class="days_value">${product.deliveryString}</p>
-		</li>
-			
-	</ul>
-	<button class="buyBtn">buy now</button>
-</div>`;
+		<div class="product_image">
+			<div class="discount">
+				 5% discount 
+			</div>
+
+			<img
+				src="image/products/${product.image}"
+				alt="sofa_yellow"
+			/>
+		</div>
+		<div class="product_text">
+			<ul class="product_text_list">
+				<li class="name">${product.productName} </li>
+
+				<li class="productId">${product.id}</li>
+				<li class="type">${product.type}</li>
+				<li class="amount ">
+					<span class="amount_name">Price</span>
+					 
+					<span class="amount_value">negotiatable</span>
+				
+				</li>
+				<li class="days ">
+					<span class="days_name">Delivery Date</span>
+					 
+					<span class="days_value">negotiatable</span>
+					
+				</li>
+			</ul>
+			<button class="buyBtn">buy now</button>
+		</div>
+	`;
 		return productElement;
 	};
 	const renderSearched = function (products, pagination) {
@@ -692,8 +803,9 @@ const searching = function () {
 		);
 		productContainer.innerHTML = '';
 		productElements.forEach((productElement) =>
-			productContainer.append(productElement)
+			productContainer.insertAdjacentElement('beforeend', productElement)
 		);
+
 		if (pagination.page) {
 			pageBtn.setAttribute('pageData', pagination.page);
 			pageBtn.setAttribute('productData', pagination.type);
@@ -713,53 +825,79 @@ const searching = function () {
 		}
 
 		if (!searched) return;
-		fetch(`/https://nanefurniture.herokuapp.com/${searched}`)
+		fetch(`/products/${searched}`)
+			// fetch(`/https://nanefurniture.herokuapp.com/${searched}`)
 			.then((result) => {
 				if (result.ok) return result.json();
 				if (!result.ok) return Promise.resolve({ status: 'fail' });
 			})
 			.then((productsData) => {
+				console.log(productsData);
 				if (productsData.status === 'success') {
-					renderSearched(
-						productsData.data.products,
-						productsData.data.pagination
-					);
+					const productContainer = document.querySelector('.products_main');
+					if (SearchedStatic) {
+						renderSearched(
+							productsData.data.products,
+							productsData.data.pagination
+						);
+					}
 					// reintialing selecting other things cause of rerendering
 					buying();
 					commenting();
-					pagination();
+					// pagination();
 				}
 
 				if (productsData.status === 'fail') {
-					if (langAmharic) {
-						if (searchedBy == 'form')
-							searchError.textContent = ' ይቅርታ ከፍለጋዎ ጋር የተያያዘ ምርት አልተገኘም !';
-						if (searchedBy == 'catagory')
-							searchError.textContent =
-								'ይቅርታ እስካሁን  በዚህ ምርት አይነት ዕቃ አለቀቅንም !  ';
+					if (!SearchedStatic) {
+						if (langAmharic) {
+							if (searchedBy == 'form')
+								searchError.textContent = ' ይቅርታ ከፍለጋዎ ጋር የተያያዘ ምርት አልተገኘም !';
+							if (searchedBy == 'catagory')
+								searchError.textContent =
+									'ይቅርታ እስካሁን  በዚህ ምርት አይነት ዕቃ አለቀቅንም !  ';
+						}
+						if (!langAmharic) {
+							if (searchedBy == 'form')
+								searchError.textContent =
+									'  No product is Associated with your search !';
+							if (searchedBy == 'catagory')
+								searchError.textContent =
+									'  No product is added with this catagory yet !';
+						}
+						searchError.classList.add('visibleError');
+						document
+							.querySelector('.getAll_btn')
+							.classList.add('.getAll_btn_hidden');
+						setTimeout(() => {
+							searchError.classList.remove('visibleError');
+							document
+								.querySelector('.getAll_btn')
+								.classList.remove('.getAll_btn_hidden');
+						}, 3000);
 					}
-					if (!langAmharic) {
-						if (searchedBy == 'form')
-							searchError.textContent =
-								'  No product is Associated with your search !';
-						if (searchedBy == 'catagory')
-							searchError.textContent =
-								'  No product is added with this catagory yet !';
+					if (SearchedStatic) {
+						const productContainer = document.querySelector('.products_main');
+						productContainer.innerHTML = '';
+						SearchedStatic.forEach((staticProduct) => {
+							productContainer.insertAdjacentElement(
+								'afterbegin',
+								staticProduct
+							);
+						});
 					}
 					if (searchedBy == 'catagory') {
 						const productContainer = document.querySelector('.products_main');
 						productContainer.scrollIntoView({ behavior: 'smooth' });
 						productContainer.classList.add('centered_section');
 					}
-					searchError.classList.add('visibleError');
-					searchError.classList.add('visibleError');
-					setTimeout(() => {
-						searchError.classList.remove('visibleError');
-					}, 3000);
+				}
+				if (searchedBy == 'catagory') {
+					const productContainer = document.querySelector('.products_main');
+					productContainer.scrollIntoView({ behavior: 'smooth' });
+					productContainer.classList.add('centered_section');
 				}
 			});
 	};
-
 	const searchFunction = function () {
 		const searchInput = document.querySelector('.search_input');
 		const searchForm = document.querySelector('.product_search');
@@ -775,7 +913,8 @@ const searching = function () {
 		];
 
 		const productContainer = document.querySelector('.products_main');
-		const products = Array.from(document.querySelectorAll('.product'));
+		let products = Array.from(allStaticProducts);
+
 		let searchIndex = 0;
 		// frontend serach
 		searchInput.addEventListener('keydown', function (e) {
@@ -790,10 +929,11 @@ const searching = function () {
 				const currentResut = [];
 				alikes.forEach((alike) => currentResut.unshift(alike));
 
-				const productsFiltered = products.filter((product) => {
+				const productsFiltered = allStaticProducts.filter((product) => {
 					const productType = product.querySelector('.type').textContent;
 					return productType == currentResut[0];
 				});
+				SearchedStatic = productsFiltered;
 				const productsUnfiltered = products.filter((product) => {
 					const productType = product.querySelector('.type').textContent;
 					return productType != currentResut[0];
@@ -815,16 +955,139 @@ const searching = function () {
 	searchFunction();
 
 	const searchFromCatagory = () => {
+		//  ----------- catagaory search front handler
+		const catagaorySearchFront = (catagory) => {
+			const searchResults = [
+				'sofa',
+				'table',
+				'chair',
+				'bed',
+				'closet',
+				'dressing',
+				'door',
+				'cabnet',
+			];
+			const products = Array.from(allStaticProducts);
+			let searchIndex = 0;
+
+			let alikes;
+			let searched = catagory.getAttribute('data-search');
+			alikes = searchResults.filter((item, index, array) => {
+				if (searched == '') return false;
+				return item.includes(searched);
+			});
+
+			if (alikes.length > 0) {
+				const currentResut = [];
+				alikes.forEach((alike) => currentResut.unshift(alike));
+				SearchedStatic = products.filter((product) => {
+					const productType = product.querySelector('.type').textContent;
+					return productType == currentResut[0];
+				});
+			}
+		};
+		// ------------------------
+
 		const searchError = document.querySelector('.search_error');
 		const catagories = document.querySelectorAll('.catagory');
 		if (catagories)
 			catagories.forEach((catagory) =>
-				catagory.addEventListener(
-					'click',
-					getSeachedData.bind(null, 'catagory', catagory)
-				)
+				catagory.addEventListener('click', (e) => {
+					getSeachedData('catagory', catagory, e);
+					catagaorySearchFront(catagory);
+				})
 			);
 	};
 	searchFromCatagory();
 };
 searching();
+const restoreFirstProducts = () => {
+	const allStaticProducts = document.querySelectorAll('.product');
+	const productContainer = document.querySelector('.products_main');
+	const resetProductBtn = document.querySelector('.getAll_btn');
+	resetProductBtn.addEventListener('click', function () {
+		productContainer.innerHTML = '';
+		allStaticProducts.forEach((product) => {
+			productContainer.insertAdjacentElement('beforeend', product);
+		});
+	});
+};
+restoreFirstProducts();
+const getDynamicCatagories = () => {
+	const catagoreisContainer = document.querySelector('.catagories_main');
+	const staticCatagories = document.querySelectorAll('.catagory');
+	let staticCatagorytypes = [];
+
+	const createCataory = (catagory) => {
+		// const image = btoa(String.fromCharCode.apply(null, catagory.image));
+		console.log(catagory.image);
+		let catagoryElement = document.createElement('div');
+		catagoryElement.classList.add('catagory');
+		catagoryElement.setAttribute('data-search', `${catagory.type}`);
+		catagoryElement.innerHTML = `
+		<div class="catagory_text">
+			<h4 class="catagory_name">${catagory.type}</h4>
+			<div class="catagory_pricing">
+				<p class="catagory_price">
+					${catagory.startingPrice}<span class="price_name">
+						birr
+					</span>
+				</p>
+				<p class="catagory_pricing_text">Prices Start at</p>
+			</div>
+		</div>
+		<div class="catagory_image">
+			<p class="catagory_image_overlay"></p>
+			<img
+				src="data:image/png; base64,${catagory.image.toString('base64')}"
+				alt="${catagory.type}"
+			/>
+		</div>`;
+		return catagoryElement;
+	};
+	renderCatagory = (catagory) => {
+		const catagoryElement = createCataory(catagory);
+		catagoreisContainer.insertAdjacentElement('beforeend', catagoryElement);
+	};
+
+	staticCatagories.forEach((catagory) => {
+		staticCatagorytypes.push(
+			catagory.querySelector('.catagory_name').textContent.trim()
+		);
+	});
+	fetch(`/catagories`)
+		// fetch(`/https://nanefurniture.herokuapp.com/${searched}`)
+		.then((result) => {
+			if (result.ok) return result.json();
+			if (!result.ok) return Promise.resolve({ status: 'fail' });
+		})
+		.then((productsData) => {
+			if (productsData.status === 'success') {
+				productsData.data.catagories.forEach((catagory) => {
+					if (
+						staticCatagorytypes.every((type) => type != `${catagory.type}s`)
+					) {
+						// fetch(`/https://nanefurniture.herokuapp.com/${searched}`)
+						fetch(`/catagories/${catagory.id}`)
+							.then((response) => {
+								if (!response.ok) return Promise.resolve({ status: 'fail' });
+								if (response.ok) return response.arrayBuffer();
+							})
+							.then((data) => {
+								function arrayBufferToBase64(buffer) {
+									var binary = '';
+									var bytes = [].slice.call(new Uint8Array(buffer));
+
+									bytes.forEach((b) => (binary += String.fromCharCode(b)));
+
+									return window.btoa(binary);
+								}
+								catagory.image = arrayBufferToBase64(data);
+								renderCatagory(catagory);
+							});
+					}
+				});
+			}
+		});
+};
+getDynamicCatagories();

@@ -57,6 +57,10 @@ router.get('/', userController.getIndex);
 
 router.get('/products/:searched', userController.getSearchedProducts);
 
+router.get('/catagories', userController.getCatagories);
+
+router.get('/catagories/:catId', userController.getCatagoryImage);
+
 router.post('/allProducts', userController.getIndexedProducts);
 
 router.post('/orders', validateOrder, userController.postOrders);
