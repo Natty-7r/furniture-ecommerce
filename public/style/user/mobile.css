@@ -676,7 +676,7 @@ button {
 .products_main .product {
 	flex-basis: 90%;
 	margin-top: 2rem;
-	height: 65rem;
+	height: 70rem;
 	background-color: var(--white);
 	box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.119);
 	display: flex;
