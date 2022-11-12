@@ -112,8 +112,8 @@ app.use(adminAuthRoutes);
 // 	res.status(500).render('./error.ejs');
 // });
 sequelize
-	// .sync({ force: true })
-	.sync({ alter: true })
+	.sync({ force: true })
+	// .sync({ alter: true })
 	// .sync()
 	.then((result) => console.log());
 app.listen(process.env.PORT || 8080);
