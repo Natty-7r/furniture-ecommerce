@@ -674,7 +674,7 @@ button {
 	padding: 1rem;
 }
 .products_main .product {
-	flex-basis: 85%;
+	flex-basis: 90%;
 	margin-top: 2rem;
 	height: 65rem;
 	background-color: var(--white);
