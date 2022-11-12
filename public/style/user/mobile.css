@@ -620,7 +620,7 @@ button {
 	display: none;
 }
 .products_main .product {
-	flex-basis: 95%;
+	flex-basis: 85%;
 	margin-top: 2rem;
 	height: 60rem;
 	background-color: var(--white);
