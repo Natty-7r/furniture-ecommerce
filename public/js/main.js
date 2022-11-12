@@ -416,6 +416,16 @@ const commenting = function () {
 				return;
 			}
 			if (!formError) {
+				e.target.elements.fullName.value =
+					e.target.elements.email.value =
+					e.target.elements.subject.value =
+					e.target.elements.message.value =
+						'';
+				contactSuccedMessage.classList.add('contact_form_message_visible');
+				contactErrorMessage.classList.remove('contact_form_error_visible');
+				setTimeout(() => {
+					contactSuccedMessage.classList.remove('contact_form_message_visible');
+				}, 5000);
 			}
 		}
 
@@ -462,18 +472,6 @@ const commenting = function () {
 				}
 				if (data.status == 'success') {
 					// clearing inputs
-					e.target.elements.fullName.value =
-						e.target.elements.email.value =
-						e.target.elements.subject.value =
-						e.target.elements.message.value =
-							'';
-					contactSuccedMessage.classList.add('contact_form_message_visible');
-					contactErrorMessage.classList.remove('contact_form_error_visible');
-					setTimeout(() => {
-						contactSuccedMessage.classList.remove(
-							'contact_form_message_visible'
-						);
-					}, 5000);
 				}
 			});
 	});
@@ -719,7 +717,6 @@ const pagination = function () {
 
 	const MoreProducts = function (e) {
 		fetch('/allProducts', {
-			// fetch('https://nanefurniture.herokuapp.com/allProducts', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
