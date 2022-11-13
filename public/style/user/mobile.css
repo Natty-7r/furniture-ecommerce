@@ -24,9 +24,19 @@
 	--white: #fff;
 	--grayWhite: #e8e3dd;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
+	:root {
+		font-size: 9px;
+	}
+}
+@media screen and (max-width: 500px) {
 	:root {
 		font-size: 8px;
+	}
+}
+@media screen and (max-width: 400px) {
+	:root {
+		font-size: 7px;
 	}
 }
 body,
