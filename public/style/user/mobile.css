@@ -24,6 +24,11 @@
 	--white: #fff;
 	--grayWhite: #e8e3dd;
 }
+@media screen and (max-width: 400px) {
+	:root {
+		font-size: 8px;
+	}
+}
 body,
 html {
 	scroll-behavior: smooth;
