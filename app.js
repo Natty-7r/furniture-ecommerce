@@ -107,10 +107,10 @@ app.use(
 app.use(userRoutes);
 app.use(adminRoutes);
 app.use(adminAuthRoutes);
-// app.use((error, req, res, next) => {
-// 	console.log(error);
-// 	res.status(500).render('./error.ejs');
-// });
+app.use((error, req, res, next) => {
+	console.log(error);
+	res.status(500).render('./error.ejs');
+});
 sequelize
 	// .sync({ force: true })
 	.sync()
