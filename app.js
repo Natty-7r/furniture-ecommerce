@@ -113,7 +113,6 @@ app.use(adminAuthRoutes);
 // });
 sequelize
 	// .sync({ force: true })
-	// .sync({ alter: true })
 	.sync()
 	.then((result) => console.log());
 app.listen(process.env.PORT || 8080);
