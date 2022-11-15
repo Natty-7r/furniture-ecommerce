@@ -153,8 +153,9 @@
 			
 			
 			<section class="catagories" id="catagories">
-				<% catagories.forEach(catagory=>{%>
+				<% (if(catagories.length >0 ){%>
 				<h1 class="section_title">catagories</h1>
+				<% catagories.forEach(catagory=>{%>
 					<div class="catagories_main">			
 						<div class="catagory" data-search="sofa">
 							<div class="catagory_text">
@@ -177,6 +178,7 @@
 							</div>
 						</div>
 						<%})%>
+						<%{%>
 	
 						
 				</div>
