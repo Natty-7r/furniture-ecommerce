@@ -155,8 +155,8 @@
 			<section class="catagories" id="catagories">
 				<% if(catagories.length >0 ){%>
 				<h1 class="section_title">catagories</h1>
-				<% catagories.forEach(catagory=>{%>
-					<div class="catagories_main">			
+				<div class="catagories_main">			
+						<% catagories.forEach(catagory=>{%>
 						<div class="catagory" data-search="sofa">
 							<div class="catagory_text">
 								<h4 class="catagory_name"><%=catagory.type%>s</h4>
